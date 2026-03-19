@@ -1,5 +1,5 @@
 import React from 'react';
-import { Rocket, Twitter, Linkedin, Github, Mail, Phone, MapPin } from 'lucide-react';
+import { Twitter, Linkedin, Github, Mail, Phone, MapPin } from 'lucide-react';
 import { Link } from 'react-scroll';
 
 const Footer: React.FC = () => {
@@ -9,9 +9,8 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="space-y-6">
-             <Link to="hero" spy={true} smooth={true} offset={-100} duration={500} className="cursor-pointer flex items-center gap-2 inline-flex">
-              <Rocket className="text-[var(--color-primary)] w-8 h-8" />
-              <span className="text-2xl font-bold tracking-tighter text-white">Vertexa<span className="text-[var(--color-secondary)]">.</span></span>
+             <Link to="hero" spy={true} smooth={true} offset={-100} duration={500} className="cursor-pointer flex items-center">
+              <img src="/logo.png" alt="Vertexa Digital" className="h-10 w-auto object-contain scale-[5] origin-left ml-6" />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
               We build modern high-performance websites for businesses and startups. Elevate your digital presence with our cutting-edge solutions.

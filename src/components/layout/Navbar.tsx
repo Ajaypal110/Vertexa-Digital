@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
-import { Menu, X, Rocket } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,9 +25,8 @@ const Navbar: React.FC = () => {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'glass-nav py-4' : 'bg-transparent py-6'}`}>
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-        <Link to="hero" spy={true} smooth={true} offset={-100} duration={500} className="cursor-pointer flex items-center gap-2">
-          <Rocket className="text-[var(--color-primary)] w-8 h-8" />
-          <span className="text-2xl font-bold tracking-tighter text-white">Vertexa<span className="text-[var(--color-secondary)]">.</span></span>
+        <Link to="hero" spy={true} smooth={true} offset={-100} duration={500} className="cursor-pointer flex items-center">
+          <img src="/logo.png" alt="Vertexa Digital" className="h-8 w-auto object-contain scale-[5] md:scale-[6] origin-left ml-6" />
         </Link>
 
         {/* Desktop Nav */}
