@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Quote } from 'lucide-react';
+import { Quote, Star } from 'lucide-react';
 import SectionHeader from '../components/ui/SectionHeader';
 
 const testimonials = [
@@ -8,60 +8,71 @@ const testimonials = [
     name: 'Sarah Johnson',
     role: 'CEO, TechFlow',
     image: 'https://i.pravatar.cc/150?img=1',
-    text: 'Vertexa Digital completely transformed our online presence. The new website is fast, beautiful, and has increased our conversion rate by 40%. The team was professional and delivered exactly what they promised.',
+    text: 'Vertexa Digital completely transformed our online presence. The new website is fast, beautiful, and has increased our conversion rate by 40%.',
+    stars: 5,
   },
   {
     name: 'Michael Chen',
     role: 'Founder, Elevate Fitness',
     image: 'https://i.pravatar.cc/150?img=11',
-    text: 'Working with Vertexa was the best decision for my business. The landing page they built for us is a lead-generating machine. The design is modern, and the animations add that premium feel we wanted.',
+    text: 'Working with Vertexa was the best decision for my business. The landing page they built for us is a lead-generating machine. Top-tier design.',
+    stars: 5,
   },
   {
     name: 'Emily Davis',
     role: 'Marketing Director, Luxe Restaurante',
     image: 'https://i.pravatar.cc/150?img=5',
-    text: 'Incredible attention to detail. They took our vague ideas and turned them into a stunning digital experience. Their knowledge of modern web technologies, specifically React and animations, is top-notch.',
+    text: 'Incredible attention to detail. They took our vague ideas and turned them into a stunning digital experience. Highly recommend their services.',
+    stars: 5,
   }
 ];
 
 const Testimonials: React.FC = () => {
   return (
-    <section id="testimonials" className="py-24 relative">
-      <div className="container mx-auto px-6 md:px-12">
+    <section id="testimonials" className="py-32 relative bg-[#0B0F19]">
+      <div className="section-container">
         <SectionHeader 
-          title="Client Feedback" 
-          subtitle="Don't just take our word for it. Read what our satisfied clients have to say about working with us."
+          title="Client Success Stories" 
+          subtitle="Don't just take our word for it. Hear from those who have built their future with us."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
           {testimonials.map((t, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-card p-8 relative flex flex-col justify-between"
+              className="premium-card flex flex-col justify-between group h-full relative"
             >
-              <Quote className="absolute top-6 right-6 text-[var(--color-primary)]/20 w-12 h-12" />
+              <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+                <Quote size={48} className="text-primary" />
+              </div>
               
-              <div className="mb-8">
-                <div className="flex gap-1 mb-6 text-yellow-500">
-                  {/* Star Rating */}
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
+              <div className="relative">
+                <div className="flex gap-1 mb-8">
+                  {[...Array(t.stars)].map((_, i) => (
+                    <Star key={i} size={16} fill="#6366F1" className="text-primary shrink-0" />
                   ))}
                 </div>
-                <p className="text-gray-300 italic leading-relaxed text-lg">"{t.text}"</p>
+                <p className="text-gray-300 text-lg leading-relaxed italic mb-10">
+                  "{t.text}"
+                </p>
               </div>
 
-              <div className="flex items-center gap-4 mt-auto border-t border-white/10 pt-6">
-                <img src={t.image} alt={t.name} className="w-12 h-12 rounded-full border border-white/20" />
-                <div>
-                  <h4 className="text-white font-semibold">{t.name}</h4>
-                  <p className="text-[var(--color-secondary)] text-sm">{t.role}</p>
+              <div className="flex items-center gap-5 pt-8 border-t border-white/5 group-hover:border-primary/20 transition-colors">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-primary/20 blur-md rounded-full group-hover:blur-lg transition-all" />
+                  <img 
+                    src={t.image} 
+                    alt={t.name} 
+                    className="w-14 h-14 rounded-full border-2 border-primary/30 relative z-10 grayscale hover:grayscale-0 transition-all duration-500" 
+                  />
+                </div>
+                <div className="space-y-1">
+                  <h4 className="text-white font-black leading-none">{t.name}</h4>
+                  <p className="text-primary text-xs font-bold uppercase tracking-widest">{t.role}</p>
                 </div>
               </div>
             </motion.div>

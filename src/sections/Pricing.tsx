@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check } from 'lucide-react';
+import { Check, Sparkles } from 'lucide-react';
 import SectionHeader from '../components/ui/SectionHeader';
 
 const plans = [
@@ -49,14 +49,14 @@ const plans = [
 
 const Pricing: React.FC = () => {
   return (
-    <section id="pricing" className="py-24 relative bg-white/5 border-y border-white/5">
-      <div className="container mx-auto px-6 md:px-12">
+    <section id="pricing" className="py-32 relative bg-[#0B0F19]">
+      <div className="section-container">
         <SectionHeader 
           title="Transparent Pricing" 
-          subtitle="Choose the perfect plan for your business needs. No hidden fees, just great results."
+          subtitle="Simple, honest pricing for high-end digital products. No hidden costs."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch mt-16">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
@@ -64,42 +64,47 @@ const Pricing: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`p-8 rounded-2xl relative ${
+              className={`flex flex-col p-10 rounded-[2.5rem] relative transition-all duration-500 overflow-hidden ${
                 plan.highlighted 
-                  ? 'bg-gradient-to-b from-[var(--color-dark)] to-[var(--color-primary)]/10 border-2 border-[var(--color-primary)] shadow-2xl shadow-[var(--color-primary)]/20 transform md:-translate-y-4' 
-                  : 'glass-card border border-white/10'
+                  ? 'bg-gradient-to-b from-[#0D1424] to-[#0D1424]/40 border-2 border-primary shadow-2xl shadow-primary/20 scale-105 z-10' 
+                  : 'bg-[#0D1117] border border-white/5 hover:border-white/10'
               }`}
             >
               {plan.highlighted && (
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] text-white px-4 py-1 rounded-full text-sm font-semibold shadow-lg">
-                  Most Popular
+                <div className="absolute top-0 right-10 transform -translate-y-1/2">
+                   <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary text-white text-[10px] font-black uppercase tracking-widest shadow-xl">
+                    <Sparkles size={12} fill="white" /> Most Popular
+                  </div>
                 </div>
               )}
               
-              <div className="text-center mb-8">
-                <h3 className="text-xl font-bold text-white mb-2">{plan.name}</h3>
-                <p className="text-gray-400 text-sm mb-6 h-10">{plan.description}</p>
-                <div className="flex justify-center items-end gap-1">
-                  <span className="text-2xl font-bold text-[var(--color-primary)]">₹</span>
-                  <span className="text-5xl font-extrabold text-white">{plan.price}</span>
+              <div className="mb-10">
+                <h3 className={`text-xl font-black mb-2 ${plan.highlighted ? 'text-primary' : 'text-white'}`}>{plan.name}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed h-10">{plan.description}</p>
+                <div className="mt-8 flex items-baseline gap-1">
+                  <span className="text-2xl font-black text-gray-400">₹</span>
+                  <span className="text-6xl font-black text-white">{plan.price}</span>
+                  <span className="text-gray-500 font-bold ml-2">/ project</span>
                 </div>
               </div>
 
-              <ul className="space-y-4 mb-8">
+              <div className="space-y-5 mb-12 flex-grow">
                 {plan.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center gap-3 text-gray-300">
-                    <Check className="text-[var(--color-secondary)] w-5 h-5 shrink-0" />
-                    <span>{feature}</span>
-                  </li>
+                  <div key={idx} className="flex items-center gap-4 text-gray-300 group">
+                    <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-colors ${plan.highlighted ? 'bg-primary/20 text-primary' : 'bg-white/5 text-gray-500 group-hover:bg-primary group-hover:text-white'}`}>
+                      <Check size={12} strokeWidth={4} />
+                    </div>
+                    <span className="text-sm font-medium">{feature}</span>
+                  </div>
                 ))}
-              </ul>
+              </div>
 
-              <button className={`w-full py-3 px-6 rounded-full font-semibold transition-all duration-300 ${
+              <button className={`w-full py-4 px-8 rounded-2xl font-black text-sm uppercase tracking-widest transition-all duration-300 shadow-xl ${
                 plan.highlighted 
-                  ? 'bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] text-white hover:opacity-90 hover:scale-105'
-                  : 'bg-white/10 text-white hover:bg-[var(--color-primary)]'
+                  ? 'bg-primary text-white hover:bg-primary/90 hover:scale-[1.02] active:scale-[0.98]'
+                  : 'bg-white/5 text-white hover:bg-white/10 active:scale-[0.98]'
               }`}>
-                Get Started
+                Choose {plan.name}
               </button>
             </motion.div>
           ))}

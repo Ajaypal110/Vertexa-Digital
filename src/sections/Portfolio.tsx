@@ -1,13 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, Sparkles } from 'lucide-react';
 import SectionHeader from '../components/ui/SectionHeader';
 
 const projects = [
   {
     title: 'KhammaGhani',
     category: 'Restaurant Website',
-    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=800',
     description: 'A modern, elegant website for a premium restaurant featuring an interactive menu and table reservation system.',
     tags: ['React', 'Tailwind CSS', 'Framer Motion'],
     demoUrl: 'https://khammaghani.online/',
@@ -16,7 +16,7 @@ const projects = [
   {
     title: 'Arlyon',
     category: 'Dating Platform',
-    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=800',
     description: 'A modern and intuitive dating platform designed to foster meaningful connections with real-time matching and chat features.',
     tags: ['Next.js', 'React', 'Tailwind CSS'],
     demoUrl: 'https://arlyon.vercel.app/',
@@ -25,7 +25,7 @@ const projects = [
   {
     title: 'Wanderlust',
     category: 'Listing Platform',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=800',
     description: 'A comprehensive travel and property listing platform that allows users to explore, book, and review unique accommodations worldwide.',
     tags: ['Node.js', 'Express', 'MongoDB'],
     demoUrl: 'https://wanderlust-4mjx.onrender.com/listings',
@@ -35,72 +35,84 @@ const projects = [
 
 const Portfolio: React.FC = () => {
   return (
-    <section id="portfolio" className="py-24 relative bg-white/5 border-y border-white/5">
-      <div className="container mx-auto px-6 md:px-12">
+    <section id="portfolio" className="py-32 relative bg-[#0B0F19]">
+      <div className="section-container">
         <SectionHeader 
           title="Featured Projects" 
           subtitle="Explore some of our recent work and see how we help businesses achieve their digital goals."
         />
 
-        <div className="space-y-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className={`flex flex-col ${index % 2 !== 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-center`}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group glass-card overflow-hidden hover:border-primary/50 transition-all duration-500"
             >
-              {/* Image Side */}
-              <div className="w-full lg:w-1/2 relative group rounded-2xl overflow-hidden glass-card p-2 border border-white/10">
-                <div className="relative overflow-hidden rounded-xl aspect-[4/3]">
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-4 backdrop-blur-sm">
-                    <a href={project.demoUrl} className="p-3 bg-white/10 hover:bg-[var(--color-primary)] rounded-full text-white backdrop-blur-md transition-colors border border-white/20">
-                      <ExternalLink size={24} />
-                    </a>
-                    <a href={project.githubUrl} className="p-3 bg-white/10 hover:bg-[#333] rounded-full text-white backdrop-blur-md transition-colors border border-white/20">
-                      <Github size={24} />
-                    </a>
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="object-cover w-full h-full transform group-hover:scale-110 group-hover:rotate-1 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-transparent opacity-60" />
+                
+                {/* Overlay Links */}
+                <div className="absolute inset-0 bg-primary/20 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-6">
+                  <motion.a 
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    href={project.demoUrl} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-4 bg-white text-black rounded-full shadow-2xl hover:bg-primary hover:text-white transition-colors"
+                  >
+                    <ExternalLink size={24} />
+                  </motion.a>
+                  <motion.a 
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    href={project.githubUrl} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-4 bg-white text-black rounded-full shadow-2xl hover:bg-black hover:text-white transition-colors"
+                  >
+                    <Github size={24} />
+                  </motion.a>
+                </div>
+                
+                <div className="absolute top-4 right-4 translate-y-[-10px] group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                  <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[10px] font-bold text-white uppercase tracking-widest">
+                    <Sparkles size={10} className="text-secondary" /> Featured
                   </div>
                 </div>
               </div>
 
-              {/* Content Side */}
-              <div className="w-full lg:w-1/2 space-y-6">
-                <span className="text-[var(--color-secondary)] text-sm font-semibold tracking-wider uppercase">
-                  {project.category}
-                </span>
-                <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight">
+              <div className="p-8 space-y-4 bg-white/[0.01]">
+                <div className="flex justify-between items-center">
+                  <span className="text-primary text-[10px] font-black uppercase tracking-widest leading-none">
+                    {project.category}
+                  </span>
+                </div>
+                <h3 className="text-2xl font-black text-white group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 text-lg leading-relaxed">
+                <p className="text-gray-400 text-sm leading-relaxed line-clamp-2">
                   {project.description}
                 </p>
                 
-                <div className="flex flex-wrap gap-3 pt-2">
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-white/[0.05]">
                   {project.tags.map((tag, tagIndex) => (
                     <span 
                       key={tagIndex} 
-                      className="px-4 py-1.5 rounded-full text-sm font-medium bg-[var(--color-primary)]/10 text-[var(--color-primary)] border border-[var(--color-primary)]/20"
+                      className="px-3 py-1 rounded-lg text-[10px] font-bold bg-white/[0.03] text-gray-400 border border-white/5 transition-colors group-hover:border-primary/20 group-hover:text-gray-300"
                     >
                       {tag}
                     </span>
                   ))}
-                </div>
-
-                <div className="flex gap-4 pt-4">
-                  <a href={project.demoUrl} className="flex items-center gap-2 text-white hover:text-[var(--color-primary)] transition-colors font-medium">
-                    <ExternalLink size={18} /> Live Demo
-                  </a>
-                  <a href={project.githubUrl} className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors font-medium">
-                    <Github size={18} /> Code
-                  </a>
                 </div>
               </div>
             </motion.div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-react';
 import SectionHeader from '../components/ui/SectionHeader';
 
 const Contact: React.FC = () => {
@@ -16,135 +16,137 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
     console.log('Form submitted:', formData);
-    alert('Thanks for contacting us! We will get back to you soon.');
+    alert('Message received! Our team will get back to you within 24 hours.');
     setFormData({ name: '', email: '', projectDetails: '' });
   };
 
-  return (
-    <section id="contact" className="py-24 relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute right-0 bottom-0 w-[500px] h-[500px] bg-[var(--color-primary)]/10 rounded-full blur-[100px] -z-10" />
-      <div className="absolute left-0 top-1/2 w-[300px] h-[300px] bg-[var(--color-secondary)]/10 rounded-full blur-[80px] -z-10" />
+  const whatsappNumber = "+918094548637";
 
-      <div className="container mx-auto px-6 md:px-12">
+  return (
+    <section id="contact" className="py-32 relative overflow-hidden bg-[#0B0F19]">
+      {/* Decorative Orbs */}
+      <div className="absolute right-0 top-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10" />
+      <div className="absolute left-0 bottom-0 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px] -z-10" />
+
+      <div className="section-container">
         <SectionHeader 
-          title="Let's Build Together" 
-          subtitle="Ready to start your next project? Get in touch with us today to discuss your ideas."
+          title="Ready to Scale?" 
+          subtitle="Let's build something exceptional together. Reach out for a consultation."
         />
 
-        <div className="flex flex-col lg:flex-row gap-16 mt-16 max-w-6xl mx-auto">
-          {/* Contact Info */}
+        <div className="flex flex-col lg:flex-row gap-12 mt-20 max-w-6xl mx-auto">
+          {/* Contact Details */}
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="w-full lg:w-1/3 space-y-8"
+            className="w-full lg:w-5/12 space-y-6"
           >
-            <div className="glass-card p-8">
-              <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
+            <div className="premium-card space-y-10 group">
+              <h3 className="text-3xl font-black text-white">Contact Info</h3>
               
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="bg-[var(--color-primary)]/10 p-3 rounded-lg border border-[var(--color-primary)]/20">
-                    <MapPin className="text-[var(--color-primary)] w-6 h-6" />
+              <div className="space-y-8">
+                <div className="flex items-start gap-5">
+                  <div className="bg-primary/10 p-4 rounded-2xl border border-primary/20 group-hover:bg-primary transition-colors group-hover:text-white">
+                    <Mail className="w-6 h-6 text-primary group-hover:text-white" />
                   </div>
                   <div>
-                    <p className="text-gray-400 text-sm">Our Location</p>
-                    <p className="text-white font-medium text-lg mt-1">Navi Mumbai, Maharashtra</p>
+                    <p className="text-gray-500 font-bold uppercase tracking-widest text-[10px] mb-1">Email Us</p>
+                    <a href="mailto:vertexadigital@gmail.com" className="text-white font-bold text-xl hover:text-primary transition-colors">vertexadigital@gmail.com</a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="bg-[var(--color-primary)]/10 p-3 rounded-lg border border-[var(--color-primary)]/20">
-                    <Phone className="text-[var(--color-primary)] w-6 h-6" />
+                <div className="flex items-start gap-5">
+                  <div className="bg-primary/10 p-4 rounded-2xl border border-primary/20 group-hover:bg-primary transition-colors group-hover:text-white">
+                    <Phone className="w-6 h-6 text-primary group-hover:text-white" />
                   </div>
                   <div>
-                    <p className="text-gray-400 text-sm">Call Us</p>
-                    <p className="text-white font-medium text-lg mt-1">+91 XXXXXXX</p>
+                    <p className="text-gray-500 font-bold uppercase tracking-widest text-[10px] mb-1">Call Us</p>
+                    <a href="tel:+918094548637" className="text-white font-bold text-xl hover:text-primary transition-colors">+91 8094548637</a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="bg-[var(--color-primary)]/10 p-3 rounded-lg border border-[var(--color-primary)]/20">
-                    <Mail className="text-[var(--color-primary)] w-6 h-6" />
+                <div className="flex items-start gap-5">
+                  <div className="bg-primary/10 p-4 rounded-2xl border border-primary/20 group-hover:bg-primary transition-colors group-hover:text-white">
+                    <MapPin className="w-6 h-6 text-primary group-hover:text-white" />
                   </div>
                   <div>
-                    <p className="text-gray-400 text-sm">Email Us</p>
-                    <p className="text-white font-medium text-lg mt-1">vertexadigital@gmail.com</p>
+                    <p className="text-gray-500 font-bold uppercase tracking-widest text-[10px] mb-1">Visit Us</p>
+                    <p className="text-white font-bold text-xl">Udaipur, RJ, India</p>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-10 pt-8 border-t border-white/10">
-                <p className="text-gray-400 text-sm mb-4 border-l-2 border-[var(--color-secondary)] pl-3">
-                  We aim to respond to all inquiries within 24 hours.
-                </p>
+              <div className="pt-10 border-t border-white/5">
+                <a 
+                  href={`https://wa.me/${whatsappNumber}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-5 px-8 rounded-2xl bg-[#25D366] text-white font-black text-sm uppercase tracking-widest flex items-center justify-center gap-3 hover:scale-[1.02] transition-transform active:scale-[0.98] shadow-2xl shadow-[#25D366]/20"
+                >
+                  <MessageCircle size={20} /> Chat on WhatsApp
+                </a>
               </div>
             </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Form */}
           <motion.div 
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="w-full lg:w-2/3"
+            className="w-full lg:w-7/12"
           >
-            <form onSubmit={handleSubmit} className="glass-card p-8 md:p-10 border border-white/10">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-gray-300 font-medium">Your Name</label>
+            <form onSubmit={handleSubmit} className="premium-card !p-12 space-y-8 h-full flex flex-col justify-between">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-3">
+                  <label className="text-xs font-black uppercase tracking-widest text-gray-500 ml-1">Full Name</label>
                   <input 
                     type="text" 
-                    id="name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-all"
-                    placeholder="John Doe"
+                    className="w-full bg-white/[0.02] border border-white/5 rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all placeholder:text-gray-700"
+                    placeholder="Steve Jobs"
                   />
                 </div>
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-gray-300 font-medium">Your Email</label>
+                <div className="space-y-3">
+                  <label className="text-xs font-black uppercase tracking-widest text-gray-500 ml-1">Email Address</label>
                   <input 
                     type="email" 
-                    id="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-all"
-                    placeholder="john@example.com"
+                    className="w-full bg-white/[0.02] border border-white/5 rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all placeholder:text-gray-700"
+                    placeholder="steve@apple.com"
                   />
                 </div>
               </div>
               
-              <div className="space-y-2 mb-8">
-                <label htmlFor="projectDetails" className="text-gray-300 font-medium">Project Details</label>
+              <div className="space-y-3 flex-grow">
+                <label className="text-xs font-black uppercase tracking-widest text-gray-500 ml-1">Project Details</label>
                 <textarea 
-                  id="projectDetails"
                   name="projectDetails"
                   value={formData.projectDetails}
                   onChange={handleChange}
                   required
-                  rows={5}
-                  className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-all resize-none"
-                  placeholder="Tell us about your project goals, timeline, and budget..."
+                  rows={4}
+                  className="w-full bg-white/[0.02] border border-white/5 rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none placeholder:text-gray-700"
+                  placeholder="Tell us about your digital goals, timeline, and budget..."
                 />
               </div>
 
-              <button 
+              <motion.button 
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
                 type="submit" 
-                className="w-full btn-primary flex items-center justify-center gap-2 group"
+                className="btn-primary w-full py-5 flex items-center justify-center gap-3 group"
               >
-                <span>Send Message</span>
-                <Send size={18} className="transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </button>
+                Launch Project <Send size={18} className="group-hover:translate-x-2 group-hover:-translate-y-1 transition-transform" />
+              </motion.button>
             </form>
           </motion.div>
         </div>

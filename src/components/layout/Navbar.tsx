@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -17,21 +17,21 @@ const Navbar: React.FC = () => {
   const navLinks = [
     { name: 'Services', to: 'services' },
     { name: 'Portfolio', to: 'portfolio' },
-    { name: 'About', to: 'about' },
     { name: 'Process', to: 'process' },
     { name: 'Pricing', to: 'pricing' },
+    { name: 'FAQ', to: 'faq' },
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'glass-nav py-4' : 'bg-transparent py-6'}`}>
-      <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-        <Link to="hero" spy={true} smooth={true} offset={-100} duration={500} className="cursor-pointer flex items-center">
-          <img src="/logo.png" alt="Vertexa Digital" className="h-8 w-auto object-contain scale-[5] md:scale-[6] origin-left ml-6" />
+    <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'glass-nav py-3 shadow-2xl shadow-black/50' : 'bg-transparent py-5'}`}>
+      <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center">
+        <Link to="hero" spy={true} smooth={true} offset={-100} duration={500} className="cursor-pointer flex items-center relative z-10 mr-auto">
+          <img src="/logo.png" alt="Vertexa Digital" className="h-[60px] md:h-[70px] w-auto object-contain scale-[3.5] md:scale-[4] origin-left transition-all duration-300" />
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
-          <div className="flex gap-6">
+        <div className="hidden md:flex items-center gap-10">
+          <div className="flex gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -40,7 +40,7 @@ const Navbar: React.FC = () => {
                 smooth={true}
                 offset={-80}
                 duration={500}
-                className="text-gray-300 hover:text-white cursor-pointer transition-colors text-sm font-medium"
+                className="text-gray-400 hover:text-white cursor-pointer transition-all text-sm font-medium hover:scale-105"
               >
                 {link.name}
               </Link>
@@ -52,24 +52,24 @@ const Navbar: React.FC = () => {
             smooth={true}
             offset={-80}
             duration={500}
-            className="btn-primary cursor-pointer text-sm"
+            className="btn-primary cursor-pointer text-sm !py-2.5 !px-6"
           >
-            Contact Us
+            Get Started
           </Link>
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white"
+          className="md:hidden text-white relative z-10"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X /> : <Menu />}
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
-      {/* Mobile Nav */}
-      {isOpen && (
-        <div className="md:hidden glass-nav absolute top-full left-0 w-full py-4 px-6 flex flex-col gap-4 border-t border-white/10">
+      {/* Mobile Nav Overlay */}
+      <div className={`fixed inset-0 bg-[#0B0F19]/98 transition-all duration-500 md:hidden ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+        <div className="flex flex-col items-center justify-center h-full gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -78,7 +78,7 @@ const Navbar: React.FC = () => {
               smooth={true}
               offset={-80}
               duration={500}
-              className="text-gray-300 hover:text-white text-lg font-medium cursor-pointer"
+              className="text-gray-300 hover:text-white text-3xl font-bold cursor-pointer transition-all"
               onClick={() => setIsOpen(false)}
             >
               {link.name}
@@ -90,13 +90,13 @@ const Navbar: React.FC = () => {
             smooth={true}
             offset={-80}
             duration={500}
-            className="btn-primary flex justify-center mt-4"
+            className="btn-primary text-xl mt-4 px-12 py-4"
             onClick={() => setIsOpen(false)}
           >
             Contact Us
           </Link>
         </div>
-      )}
+      </div>
     </nav>
   );
 };

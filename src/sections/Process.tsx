@@ -7,76 +7,72 @@ const steps = [
   {
     title: 'Discovery',
     description: 'We dive deep into your requirements, target audience, and business goals to outline the perfect digital strategy.',
-    icon: <Search className="w-8 h-8 text-[var(--color-primary)]" />
+    icon: <Search className="w-8 h-8 text-primary" />
   },
   {
     title: 'Design',
     description: 'Creating stunning, user-centric interfaces with detailed wireframes and high-fidelity mockups.',
-    icon: <PenTool className="w-8 h-8 text-[var(--color-secondary)]" />
+    icon: <PenTool className="w-8 h-8 text-secondary" />
   },
   {
     title: 'Development',
     description: 'Turning designs into reality using modern tech stacks, ensuring clean code, scaleability, and peak performance.',
-    icon: <Code className="w-8 h-8 text-[var(--color-primary)]" />
+    icon: <Code className="w-8 h-8 text-primary" />
   },
   {
     title: 'Launch',
     description: 'Rigorous testing, SEO optimization, and final deployment to deliver a flawless product to your users.',
-    icon: <Rocket className="w-8 h-8 text-[var(--color-secondary)]" />
+    icon: <Rocket className="w-8 h-8 text-secondary" />
   }
 ];
 
 const Process: React.FC = () => {
   return (
-    <section id="process" className="py-24 relative bg-[#080d1a]">
-      <div className="container mx-auto px-6 md:px-12">
+    <section id="process" className="py-32 relative bg-[#0B0F19] overflow-hidden">
+      <div className="section-container">
         <SectionHeader 
           title="Our Process" 
           subtitle="A proven, transparent workflow designed to deliver stunning results on time, every time."
         />
 
-        <div className="relative max-w-5xl mx-auto mt-16">
-          {/* Vertical Line for timeline */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[var(--color-primary)] via-[var(--color-secondary)] to-[var(--color-primary)] opacity-20 transform -translate-x-1/2" />
+        <div className="relative mt-24">
+          {/* Animated Connecting Line */}
+          <div className="absolute top-1/2 left-0 w-full h-px bg-white/5 hidden lg:block -translate-y-1/2">
+            <motion.div 
+              initial={{ width: 0 }}
+              whileInView={{ width: '100%' }}
+              viewport={{ once: true }}
+              transition={{ duration: 2, ease: "easeInOut" }}
+              className="h-full bg-gradient-to-r from-primary to-secondary"
+            />
+          </div>
 
-          <div className="space-y-12 md:space-y-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, index) => (
-              <div 
+              <motion.div 
                 key={index}
-                className={`flex flex-col md:flex-row items-center justify-between w-full
-                  ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}
-                `}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative z-10"
               >
-                {/* Timeline dot */}
-                <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-[#0B0F19] border-4 border-[var(--color-primary)] rounded-full items-center justify-center z-10">
-                  <span className="text-white font-bold">{index + 1}</span>
-                </div>
-
-                <motion.div 
-                  initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  className="w-full md:w-5/12"
-                >
-                  <div className="glass-card p-8 group hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
-                    <div className="absolute top-0 right-0 -mt-2 -mr-2 w-20 h-20 bg-gradient-to-br from-white/5 to-white/0 rounded-full blur-xl group-hover:bg-[var(--color-primary)]/10 transition-colors" />
-                    
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="p-3 rounded-lg bg-white/5 border border-white/5">
-                        {step.icon}
-                      </div>
-                      <h4 className="text-2xl font-bold text-white">{step.title}</h4>
+                <div className="premium-card h-full text-center group hover:bg-[#111620] relative">
+                  <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-black border-4 border-[#0B0F19] text-xl transition-all duration-300 group-hover:scale-110">
+                    {index + 1}
+                  </div>
+                  
+                  <div className="pt-6">
+                    <div className="mb-6 inline-flex p-4 rounded-3xl bg-white/[0.03] border border-white/10 group-hover:border-primary group-hover:bg-primary/5 transition-all duration-500">
+                      {step.icon}
                     </div>
-                    <p className="text-gray-400 leading-relaxed text-lg">
+                    <h4 className="text-2xl font-black text-white mb-4 transition-colors group-hover:text-primary">{step.title}</h4>
+                    <p className="text-gray-400 group-hover:text-gray-300 leading-relaxed text-sm">
                       {step.description}
                     </p>
                   </div>
-                </motion.div>
-                
-                {/* Empty space for opposite side */}
-                <div className="hidden md:block w-5/12" />
-              </div>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>

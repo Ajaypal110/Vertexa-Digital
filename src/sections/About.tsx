@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import SectionHeader from '../components/ui/SectionHeader';
 
 const skills = [
   'React', 'Node.js', 'MongoDB', 'Express', 'JavaScript', 'Tailwind', 'REST API'
@@ -8,28 +7,27 @@ const skills = [
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-24 relative overflow-hidden">
-      <div className="container mx-auto px-6 md:px-12">
-        <SectionHeader 
-          title="About Vertexa" 
-          subtitle="We are passionate builders dedicated to creating exceptional digital products."
-        />
-
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
+    <section id="about" className="py-32 relative overflow-hidden bg-[#0B0F19]">
+      <div className="section-container">
+        <div className="flex flex-col lg:flex-row gap-20 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="w-full lg:w-1/2"
+            transition={{ duration: 0.8 }}
+            className="w-full lg:w-1/2 relative"
           >
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] opacity-30 blur-2xl rounded-full" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-[2.5rem] blur-2xl opacity-20 animate-pulse" />
+            <div className="relative z-10 p-2 glass-card overflow-hidden">
               <img 
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800"
                 alt="Our Team"
-                className="relative z-10 rounded-2xl border border-white/10 shadow-2xl glass-card p-2"
+                className="rounded-[2rem] grayscale hover:grayscale-0 transition-all duration-700 w-full"
               />
+              <div className="absolute bottom-10 right-10 bg-black/60 backdrop-blur-xl border border-white/10 p-6 rounded-3xl shadow-2xl">
+                <p className="text-3xl font-black text-white leading-none">5+</p>
+                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-primary mt-2">Projects Done</p>
+              </div>
             </div>
           </motion.div>
 
@@ -37,32 +35,39 @@ const About: React.FC = () => {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="w-full lg:w-1/2 space-y-6"
+            transition={{ duration: 0.8 }}
+            className="w-full lg:w-1/2 space-y-10"
           >
-            <h3 className="text-3xl font-bold text-white mb-4">
-              Building <span className="gradient-text">Fast, Modern</span> and Scalable Websites
-            </h3>
+            <div className="space-y-4">
+              <span className="text-primary text-xs font-black uppercase tracking-[0.3em] bg-primary/10 px-4 py-2 rounded-full border border-primary/20">Our Story</span>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
+                Building <span className="gradient-text">Scalable Future</span> for Businesses
+              </h2>
+            </div>
             
-            <p className="text-gray-400 text-lg leading-relaxed">
+            <p className="text-gray-400 text-xl leading-relaxed">
               Vertexa Digital is a web development agency focused on building fast, modern and scalable websites. We help startups and businesses create powerful online presence using modern technologies.
             </p>
             
-            <p className="text-gray-400 text-lg leading-relaxed pt-2">
-              Our team of expert developers and designers work collaboratively to deliver cutting-edge solutions tailored to your unique business requirements.
-            </p>
+            <div className="grid grid-cols-2 gap-8 pt-4">
+              <div>
+                <h4 className="text-white font-black text-lg mb-2">Philosophy</h4>
+                <p className="text-gray-500 text-sm leading-relaxed">Design with purpose, build with precision. We don't just write code; we craft experiences.</p>
+              </div>
+              <div>
+                <h4 className="text-white font-black text-lg mb-2">Excellence</h4>
+                <p className="text-gray-500 text-sm leading-relaxed">Every pixel matters. Every millisecond counts. We strive for absolute digital perfection.</p>
+              </div>
+            </div>
 
-            <div className="pt-8">
-              <h4 className="text-xl font-semibold text-white mb-4">Technologies We Use</h4>
+            <div className="pt-6">
+              <h4 className="text-white/60 font-bold uppercase tracking-widest text-xs mb-6">Expertise Stack</h4>
               <div className="flex flex-wrap gap-3">
                 {skills.map((skill, index) => (
                   <motion.span
                     key={index}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    className="px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white font-medium hover:bg-[var(--color-primary)]/20 hover:border-[var(--color-primary)]/50 transition-all duration-300"
+                    whileHover={{ scale: 1.05, border: '1px solid var(--color-primary)' }}
+                    className="px-5 py-2.5 rounded-xl bg-white/[0.03] border border-white/5 text-gray-300 font-bold text-sm transition-all cursor-default"
                   >
                     {skill}
                   </motion.span>
