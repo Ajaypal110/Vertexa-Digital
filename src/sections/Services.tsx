@@ -8,43 +8,77 @@ const services = [
     title: 'Website Development',
     description: 'Custom, high-performance websites built from scratch with modern technologies tailored to your business needs.',
     icon: <Monitor className="w-6 h-6 text-primary" />,
-    gradient: 'from-primary/20 to-secondary/20'
+    gradient: 'from-primary/20 to-secondary/20',
+    details: {
+      features: ['Full-stack MERN development', 'Custom architecture', 'Scalable database design', 'Admin dashboard', 'Deployment & hosting'],
+      approach: 'We follow a rigorous development cycle from database indexing to frontend state management, ensuring your enterprise-grade application is ready for millions of users.',
+      tech: ['React', 'Node.js', 'MongoDB', 'Redis', 'AWS']
+    }
   },
   {
     title: 'Landing Pages',
     description: 'High-converting landing pages designed to turn your visitors into customers with beautiful, optimized layouts.',
     icon: <Smartphone className="w-6 h-6 text-secondary" />,
-    gradient: 'from-secondary/20 to-tertiary/20'
+    gradient: 'from-secondary/20 to-tertiary/20',
+    details: {
+      features: ['Conversion optimization', 'A/B tested layouts', 'Fast load speeds', 'Mobile-first design', 'Copywriting assistance'],
+      approach: 'Every pixel of our landing pages is designed to guide the user towards a single goal: Conversion. We prioritize speed and psychological triggers.',
+      tech: ['Next.js', 'Framer Motion', 'Tailwind', 'Vercel']
+    }
   },
   {
     title: 'Website Redesign',
     description: 'Transform your outdated website into a modern, fast, and responsive digital experience that users love.',
     icon: <Wrench className="w-6 h-6 text-primary" />,
-    gradient: 'from-tertiary/20 to-primary/20'
+    gradient: 'from-tertiary/20 to-primary/20',
+    details: {
+      features: ['Modern accessibility', 'SEO preservation', 'Brand realignment', 'Performance boost', 'UX/UI audit'],
+      approach: 'We don’t just reskin your site; we rebuild the foundation to meet modern standards while keeping your existing SEO equity and improving engagement.',
+      tech: ['Figma', 'React', 'Lighthouse', 'SEO Tools']
+    }
   },
   {
     title: 'Bug Fixing',
     description: 'Fast and reliable resolution of technical issues to ensure your website runs smoothly without interruptions.',
     icon: <Bug className="w-6 h-6 text-secondary" />,
-    gradient: 'from-primary/20 to-secondary/20'
+    gradient: 'from-primary/20 to-secondary/20',
+    details: {
+      features: ['Security patching', 'Logic error resolution', 'Database cleanup', 'API troubleshooting', 'Legacy code refactoring'],
+      approach: 'Our deep-dive debugging process identifies root causes within hours. We provide thorough testing to ensure the issue never returns.',
+      tech: ['Chrome DevTools', 'Postman', 'Sentry', 'Unit Tests']
+    }
   },
   {
     title: 'API Integration',
     description: 'Seamless integration of third-party APIs and services to extend the functionality of your web applications.',
     icon: <Code2 className="w-6 h-6 text-primary" />,
-    gradient: 'from-secondary/20 to-tertiary/20'
+    gradient: 'from-secondary/20 to-tertiary/20',
+    details: {
+      features: ['Payment gateways', 'CRM synchronization', 'Auth0/Firebase setup', 'Custom webhooks', 'Third-party SaaS links'],
+      approach: 'We specialize in making disparate systems talk to each other securely and efficiently, ensuring data flows where it needs to without bottlenecks.',
+      tech: ['REST', 'GraphQL', 'Stripe', 'Twilio', 'Firebase']
+    }
   },
   {
     title: 'Performance Optimization',
     description: 'Speed up your website to improve user experience and SEO rankings with our advanced optimization techniques.',
     icon: <Zap className="w-6 h-6 text-secondary" />,
-    gradient: 'from-tertiary/20 to-primary/20'
+    gradient: 'from-tertiary/20 to-primary/20',
+    details: {
+      features: ['Core Web Vitals improvement', 'Image compression', 'Code splitting', 'Asset minification', 'Server-side rendering'],
+      approach: 'We push for 90+ scores on PageSpeed Insights. Speed is a competitive advantage, and we make your site faster than the competition.',
+      tech: ['Next.js', 'Cloudflare', 'Gzip', 'Vercel Edge']
+    }
   }
 ];
 
-const Services: React.FC = () => {
+interface ServicesProps {
+  onLearnMore?: (service: any) => void;
+}
+
+const Services: React.FC<ServicesProps> = ({ onLearnMore }) => {
   return (
-    <section id="services" className="py-32 relative bg-white">
+    <section id="services" className="py-20 relative bg-white">
       <div className="section-container">
         <SectionHeader 
           title="Our Services" 
@@ -71,9 +105,12 @@ const Services: React.FC = () => {
                 <p className="text-gray-600 group-hover:text-gray-700 transition-colors leading-relaxed mb-6 flex-grow">
                   {service.description}
                 </p>
-                <div className="flex items-center gap-2 text-primary text-sm font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-[0px] transition-all duration-500">
+                <button 
+                  onClick={() => onLearnMore?.(service)}
+                  className="flex items-center gap-2 text-primary text-sm font-bold uppercase tracking-widest md:opacity-0 md:group-hover:opacity-100 transform md:translate-x-[-10px] md:group-hover:translate-x-[0px] transition-all duration-500 hover:scale-105"
+                >
                   Learn More <Zap size={14} className="fill-primary" />
-                </div>
+                </button>
               </div>
             </motion.div>
           ))}

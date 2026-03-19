@@ -32,7 +32,7 @@ const reasons = [
 
 const WhyChooseUs: React.FC = () => {
   return (
-    <section id="why" className="py-32 relative overflow-hidden bg-white">
+    <section id="why" className="py-20 relative overflow-hidden bg-white">
       <div className="section-container">
         <SectionHeader 
           title="Why Choose Vertexa" 

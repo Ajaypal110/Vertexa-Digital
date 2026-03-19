@@ -66,7 +66,7 @@ const FAQItem: React.FC<{ faq: typeof faqs[0], index: number }> = ({ faq, index 
 
 const FAQ: React.FC = () => {
   return (
-    <section id="faq" className="py-32 relative bg-white">
+    <section id="faq" className="py-20 relative bg-white">
       <div className="section-container">
         <SectionHeader 
           title="Common Questions" 

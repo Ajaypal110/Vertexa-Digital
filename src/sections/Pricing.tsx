@@ -6,7 +6,8 @@ import SectionHeader from '../components/ui/SectionHeader';
 const plans = [
   {
     name: 'Starter',
-    price: '3000',
+    price: '3,000',
+    priceUSD: '35',
     description: 'Perfect for small businesses and personal portfolios.',
     features: [
       'Single Page Website',
@@ -19,7 +20,8 @@ const plans = [
   },
   {
     name: 'Business',
-    price: '7000',
+    price: '7,000',
+    priceUSD: '85',
     description: 'Ideal for growing businesses needing more power.',
     features: [
       'Up to 5 Pages',
@@ -33,7 +35,8 @@ const plans = [
   },
   {
     name: 'Premium',
-    price: '15000',
+    price: '15,000',
+    priceUSD: '180',
     description: 'Complete digital solution for scaleups and enterprises.',
     features: [
       'Unlimited Pages',
@@ -49,7 +52,7 @@ const plans = [
 
 const Pricing: React.FC = () => {
   return (
-    <section id="pricing" className="py-32 relative bg-white">
+    <section id="pricing" className="py-20 relative bg-white">
       <div className="section-container">
         <SectionHeader 
           title="Transparent Pricing" 
@@ -81,10 +84,16 @@ const Pricing: React.FC = () => {
               <div className="mb-10">
                 <h3 className={`text-xl font-black mb-2 ${plan.highlighted ? 'text-primary' : 'text-dark'}`}>{plan.name}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed h-10">{plan.description}</p>
-                <div className="mt-8 flex items-baseline gap-1">
-                  <span className="text-2xl font-black text-primary">₹</span>
-                  <span className="text-6xl font-black text-dark">{plan.price}</span>
-                  <span className="text-gray-500 font-bold ml-2">/ project</span>
+                <div className="mt-8 flex flex-col items-start gap-1">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-2xl font-black text-primary">₹</span>
+                    <span className="text-6xl font-black text-dark">{plan.price}</span>
+                  </div>
+                  <div className="flex items-baseline gap-1 opacity-60">
+                    <span className="text-lg font-black text-primary">$</span>
+                    <span className="text-3xl font-black text-dark">{plan.priceUSD}</span>
+                    <span className="text-gray-500 font-bold ml-2 text-xs">/ project</span>
+                  </div>
                 </div>
               </div>
 

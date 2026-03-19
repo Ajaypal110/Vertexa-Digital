@@ -1,5 +1,5 @@
 import React from 'react';
-import { Twitter, Linkedin, Github, Mail, Phone, MapPin, ExternalLink, Instagram } from 'lucide-react';
+import { Linkedin, Github, Mail, Phone, MapPin, ExternalLink, Instagram } from 'lucide-react';
 import { Link } from 'react-scroll';
 
 interface FooterProps {
@@ -32,7 +32,7 @@ const Footer: React.FC<FooterProps> = ({ onPrivacyClick, onTermsClick, onRefundC
             </p>
             <div className="flex gap-4">
               {[
-                { icon: <Twitter size={18} />, href: "#" },
+
                 { icon: <Instagram size={18} />, href: "https://www.instagram.com/vertexadigital.dev/" },
                 { icon: <Linkedin size={18} />, href: "https://www.linkedin.com/company/vertexa-digital-agency" },
                 { icon: <Github size={18} />, href: "https://github.com/Ajaypal110" },

@@ -28,7 +28,7 @@ const steps = [
 
 const Process: React.FC = () => {
   return (
-    <section id="process" className="py-32 relative bg-white overflow-hidden">
+    <section id="process" className="py-20 relative bg-white overflow-hidden">
       <div className="section-container">
         <SectionHeader 
           title="Our Process" 

@@ -7,7 +7,7 @@ const skills = [
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-32 relative overflow-hidden bg-white">
+    <section id="about" className="py-20 relative overflow-hidden bg-white">
       <div className="section-container">
         <div className="flex flex-col lg:flex-row gap-20 items-center">
           <motion.div 
@@ -17,7 +17,7 @@ const About: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="w-full lg:w-1/2 relative"
           >
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-[2.5rem] blur-2xl opacity-10 animate-pulse" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-[2.5rem] blur-xl md:blur-2xl opacity-10 md:animate-pulse will-change-transform" />
             <div className="relative z-10 p-2 premium-card overflow-hidden !bg-white">
               <img 
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800"

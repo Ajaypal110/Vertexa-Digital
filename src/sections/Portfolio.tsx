@@ -7,35 +7,41 @@ const projects = [
   {
     title: 'KhammaGhani',
     category: 'Restaurant Website',
-    image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=800',
+    image: '/projects/khammaghani.png',
     description: 'A modern, elegant website for a premium restaurant featuring an interactive menu and table reservation system.',
-    tags: ['React', 'Tailwind CSS', 'Framer Motion'],
+    tags: ['React', 'Tailwind CSS', 'Framer Motion', 'Lucide React', 'Responsive Design'],
     demoUrl: 'https://khammaghani.online/',
-    githubUrl: 'https://github.com/Ajaypal110/KhammaGhani'
+    githubUrl: 'https://github.com/Ajaypal110/KhammaGhani',
+    cost: '30,000',
+    costUSD: '360'
   },
   {
     title: 'Arlyon',
     category: 'Dating Platform',
-    image: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=800',
+    image: '/projects/arlyon.png',
     description: 'A modern and intuitive dating platform designed to foster meaningful connections with real-time matching and chat features.',
-    tags: ['Next.js', 'React', 'Tailwind CSS'],
+    tags: ['Next.js', 'React', 'Tailwind CSS', 'Real-time Chat', 'User Auth'],
     demoUrl: 'https://arlyon.vercel.app/',
-    githubUrl: 'https://github.com/Ajaypal110/Arlyon'
+    githubUrl: 'https://github.com/Ajaypal110/Arlyon',
+    cost: '20,000',
+    costUSD: '240'
   },
   {
     title: 'Wanderlust',
     category: 'Listing Platform',
-    image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=800',
+    image: '/projects/wanderlust.png',
     description: 'A comprehensive travel and property listing platform that allows users to explore, book, and review unique accommodations worldwide.',
-    tags: ['Node.js', 'Express', 'MongoDB'],
+    tags: ['Node.js', 'Express', 'MongoDB', 'REST API', 'MVC Architecture'],
     demoUrl: 'https://wanderlust-4mjx.onrender.com/listings',
-    githubUrl: 'https://github.com/Ajaypal110/Wanderlust'
+    githubUrl: 'https://github.com/Ajaypal110/Wanderlust',
+    cost: '15,000',
+    costUSD: '180'
   }
 ];
 
 const Portfolio: React.FC = () => {
   return (
-    <section id="portfolio" className="py-32 relative bg-white">
+    <section id="portfolio" className="py-20 relative bg-white">
       <div className="section-container">
         <SectionHeader 
           title="Featured Projects" 
@@ -96,6 +102,10 @@ const Portfolio: React.FC = () => {
                   <span className="text-primary text-[10px] font-black uppercase tracking-widest leading-none">
                     {project.category}
                   </span>
+                  <span className="text-secondary text-xs font-black bg-secondary/5 px-2 py-1 rounded-md flex flex-col items-end">
+                    <span>₹{project.cost}</span>
+                    <span className="text-[10px] opacity-60">${project.costUSD}</span>
+                  </span>
                 </div>
                 <h3 className="text-2xl font-black text-dark group-hover:text-primary transition-colors">
                   {project.title}
@@ -113,6 +123,26 @@ const Portfolio: React.FC = () => {
                       {tag}
                     </span>
                   ))}
+                </div>
+
+                {/* Mobile Links (Visible only on mobile) */}
+                <div className="flex md:hidden gap-3 pt-4 border-t border-black/[0.05]">
+                  <a 
+                    href={project.demoUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-primary text-white text-[10px] font-black uppercase tracking-widest shadow-lg shadow-primary/20"
+                  >
+                    <ExternalLink size={14} /> Visit Website
+                  </a>
+                  <a 
+                    href={project.githubUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-secondary text-white text-[10px] font-black uppercase tracking-widest shadow-lg shadow-secondary/20"
+                  >
+                    <Github size={14} /> GitHub
+                  </a>
                 </div>
               </div>
             </motion.div>

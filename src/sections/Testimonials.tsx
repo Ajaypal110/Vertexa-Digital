@@ -5,31 +5,31 @@ import SectionHeader from '../components/ui/SectionHeader';
 
 const testimonials = [
   {
-    name: 'Sarah Johnson',
-    role: 'CEO, TechFlow',
-    image: 'https://i.pravatar.cc/150?img=1',
-    text: 'Vertexa Digital completely transformed our online presence. The new website is fast, beautiful, and has increased our conversion rate by 40%.',
-    stars: 5,
-  },
-  {
-    name: 'Michael Chen',
-    role: 'Founder, Elevate Fitness',
+    name: 'Vikram Singh',
+    role: 'Founder, KhammaGhani',
     image: 'https://i.pravatar.cc/150?img=11',
-    text: 'Working with Vertexa was the best decision for my business. The landing page they built for us is a lead-generating machine. Top-tier design.',
+    text: "The interactive reservation system Vertexa built for KhammaGhani is flawless. Our dinner bookings increased by 40% in the first month. Ajaypal’s attention to detail is world-class.",
     stars: 5,
   },
   {
-    name: 'Emily Davis',
-    role: 'Marketing Director, Luxe Restaurante',
+    name: 'Elena Rodriguez',
+    role: 'CEO, Arlyon Platform',
     image: 'https://i.pravatar.cc/150?img=5',
-    text: 'Incredible attention to detail. They took our vague ideas and turned them into a stunning digital experience. Highly recommend their services.',
+    text: "Building a dating app requires extreme precision. Vertexa delivered a scalable matchmaking engine and real-time chat that our users love. They are true partners in our success.",
+    stars: 5,
+  },
+  {
+    name: 'David Chen',
+    role: 'Product Lead, Wanderlust',
+    image: 'https://i.pravatar.cc/150?img=8',
+    text: "Our property listings have never looked better. The UI is so intuitive that even our non-tech users find it easy to navigate. Vertexa is my first choice for high-end web development.",
     stars: 5,
   }
 ];
 
 const Testimonials: React.FC = () => {
   return (
-    <section id="testimonials" className="py-32 relative bg-white">
+    <section id="testimonials" className="py-20 relative bg-white">
       <div className="section-container">
         <SectionHeader 
           title="Client Success Stories" 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
@@ -10,48 +10,59 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 z-0">
         <motion.div 
           animate={{ 
-            scale: [1, 1.1, 1],
-            rotate: [0, 5, 0],
-            opacity: [0.3, 0.4, 0.3]
+            scale: [1, 1.05, 1],
+            opacity: [0.3, 0.35, 0.3]
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-[10%] -left-[5%] w-[600px] h-[600px] rounded-full bg-primary/10 blur-[130px]"
+          className="absolute -top-[10%] -left-[5%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] rounded-full bg-primary/10 blur-[60px] md:blur-[130px] will-change-transform"
         />
         <motion.div 
           animate={{ 
-            scale: [1, 1.2, 1],
-            rotate: [0, -7, 0],
-            opacity: [0.2, 0.3, 0.2]
+            scale: [1, 1.1, 1],
+            opacity: [0.2, 0.25, 0.2]
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[0%] -right-[5%] w-[700px] h-[700px] rounded-full bg-tertiary/20 blur-[150px]"
+          className="absolute bottom-[0%] -right-[5%] w-[350px] md:w-[700px] h-[350px] md:h-[700px] rounded-full bg-tertiary/20 blur-[80px] md:blur-[150px] will-change-transform"
         />
         {/* Subtle texture overlay */}
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none" />
       </div>
 
-      {/* Floating Shapes Animation - Optimized */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        {[...Array(4)].map((_, i) => (
+        {[...Array(2)].map((_, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0 }}
             animate={{ 
-              y: [0, -20, 0],
-              opacity: [0.2, 0.4, 0.2],
+              y: [0, -15, 0],
+              opacity: [0.1, 0.2, 0.1],
             }}
             transition={{ 
-              duration: 8 + Math.random() * 5, 
+              duration: 10 + Math.random() * 5, 
               repeat: Infinity,
-              delay: Math.random() * 2
             }}
-            className={`absolute w-32 h-32 rounded-3xl border border-primary/10 bg-white/40 shadow-sm`}
+            className={`absolute w-24 h-24 rounded-3xl border border-primary/5 bg-white/20 will-change-transform`}
             style={{ 
-              left: `${15 + i * 20}%`, 
-              top: `${20 + (i % 2) * 30}%` 
+              left: `${20 + i * 50}%`, 
+              top: `${20 + i * 40}%` 
             }}
           />
         ))}
+        {/* Render more only on desktop */}
+        <div className="hidden md:block">
+          {[...Array(2)].map((_, i) => (
+            <motion.div
+              key={i+2}
+              animate={{ 
+                y: [0, -20, 0],
+                opacity: [0.2, 0.4, 0.2],
+              }}
+              transition={{ duration: 8 + Math.random() * 5, repeat: Infinity }}
+              className="absolute w-32 h-32 rounded-3xl border border-primary/10 bg-white/40 shadow-sm"
+              style={{ left: `${35 + i * 30}%`, top: `${45 + (i % 2) * 20}%` }}
+            />
+          ))}
+        </div>
       </div>
 
       <div className="section-container relative z-10 text-center">
@@ -60,17 +71,14 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/10 bg-primary/5 mb-8 group cursor-default">
-            <Sparkles className="text-primary w-4 h-4" />
-            <span className="text-sm font-bold tracking-tight text-primary">Premium Web agency for Modern Startups</span>
-          </div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-8 leading-[1.1] text-dark">
+
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight mb-8 leading-[1.1] text-dark">
             Modern Websites That <br className="hidden md:block" />
             <span className="gradient-text">Grow Your Business</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-600 mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
             We design and develop high-performance websites for startups and businesses. Scale your brand with precision-engineered digital products.
           </p>
 
