@@ -72,7 +72,15 @@ const Footer: React.FC<FooterProps> = ({ onPrivacyClick, onTermsClick, onRefundC
           <div className="lg:col-span-2 space-y-6">
             <h4 className="text-dark font-semibold text-sm uppercase tracking-widest">Company</h4>
             <ul className="space-y-4">
-              <li><button className="text-gray-600 hover:text-primary transition-colors text-sm text-left">About Us</button></li>
+              <li>
+                <Link 
+                  to="about" 
+                  spy={true} smooth={true} offset={-80} duration={500}
+                  className="text-gray-600 hover:text-primary cursor-pointer transition-colors text-sm"
+                >
+                  About Us
+                </Link>
+              </li>
               <li><button onClick={onPrivacyClick} className="text-gray-600 hover:text-primary transition-colors text-sm text-left">Privacy Policy</button></li>
               <li><button onClick={onTermsClick} className="text-gray-600 hover:text-primary transition-colors text-sm text-left">Terms & Conditions</button></li>
               <li><button onClick={onRefundClick} className="text-gray-600 hover:text-primary transition-colors text-sm text-left">Refund Policy</button></li>

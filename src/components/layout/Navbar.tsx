@@ -23,6 +23,7 @@ const Navbar: React.FC = () => {
   }, [isOpen]);
 
   const navLinks = [
+    { name: 'About', to: 'about' },
     { name: 'Services', to: 'services' },
     { name: 'Portfolio', to: 'portfolio' },
     { name: 'Process', to: 'process' },
