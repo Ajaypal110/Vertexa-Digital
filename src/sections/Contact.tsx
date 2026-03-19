@@ -16,9 +16,9 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Message received! Our team will get back to you within 24 hours.');
-    setFormData({ name: '', email: '', projectDetails: '' });
+    const subject = `New Project Inquiry from ${formData.name}`;
+    const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nProject Details:\n${formData.projectDetails}`;
+    window.location.href = `mailto:vertexadigital.dev@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   const whatsappNumber = "+918094548637";
@@ -53,7 +53,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <p className="text-gray-500 font-bold uppercase tracking-widest text-[10px] mb-1">Email Us</p>
-                    <a href="mailto:vertexadigital@gmail.com" className="text-white font-bold text-xl hover:text-primary transition-colors">vertexadigital@gmail.com</a>
+                    <a href="mailto:vertexadigital.dev@gmail.com" className="text-white font-bold text-xl hover:text-primary transition-colors">vertexadigital.dev@gmail.com</a>
                   </div>
                 </div>
 

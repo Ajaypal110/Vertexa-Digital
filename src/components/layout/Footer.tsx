@@ -77,7 +77,7 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-primary shrink-0" />
-                <a href="mailto:vertexadigital@gmail.com" className="text-gray-400 hover:text-primary transition-colors text-sm">vertexadigital@gmail.com</a>
+                <a href="mailto:vertexadigital.dev@gmail.com" className="text-gray-400 hover:text-primary transition-colors text-sm">vertexadigital.dev@gmail.com</a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-primary shrink-0" />
