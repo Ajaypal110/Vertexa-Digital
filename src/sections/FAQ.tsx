@@ -36,11 +36,11 @@ const FAQItem: React.FC<{ faq: typeof faqs[0], index: number }> = ({ faq, index 
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`w-full p-8 flex items-center justify-between text-left transition-all duration-300 rounded-[2rem] border ${
-          isOpen ? 'bg-[#111620] border-primary shadow-2xl shadow-primary/10' : 'bg-[#0D1117] border-white/5 hover:border-white/15'
+          isOpen ? 'bg-[#FCFDFB] border-primary shadow-xl shadow-primary/5' : 'bg-white border-black/5 hover:border-primary/20'
         }`}
       >
-        <span className="text-xl font-bold text-white pr-8">{faq.question}</span>
-        <div className={`p-2 rounded-full transition-colors ${isOpen ? 'bg-primary text-white' : 'bg-white/5 text-gray-400'}`}>
+        <span className="text-xl font-bold text-dark pr-8">{faq.question}</span>
+        <div className={`p-2 rounded-full transition-colors ${isOpen ? 'bg-primary text-white' : 'bg-primary/5 text-primary'}`}>
           {isOpen ? <Minus size={20} /> : <Plus size={20} />}
         </div>
       </button>
@@ -54,7 +54,7 @@ const FAQItem: React.FC<{ faq: typeof faqs[0], index: number }> = ({ faq, index 
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <div className="p-8 pb-10 text-gray-400 leading-relaxed text-lg border-x border-b border-primary/10 rounded-b-[2rem] -mt-8 bg-[#111620]/50">
+            <div className="p-8 pb-10 text-gray-600 leading-relaxed text-lg border-x border-b border-primary/10 rounded-b-[2rem] -mt-8 bg-white">
               {faq.answer}
             </div>
           </motion.div>
@@ -66,7 +66,7 @@ const FAQItem: React.FC<{ faq: typeof faqs[0], index: number }> = ({ faq, index 
 
 const FAQ: React.FC = () => {
   return (
-    <section id="faq" className="py-32 relative bg-[#0B0F19]">
+    <section id="faq" className="py-32 relative bg-white">
       <div className="section-container">
         <SectionHeader 
           title="Common Questions" 

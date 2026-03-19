@@ -32,7 +32,7 @@ const reasons = [
 
 const WhyChooseUs: React.FC = () => {
   return (
-    <section id="why" className="py-32 relative overflow-hidden bg-[#0B0F19]">
+    <section id="why" className="py-32 relative overflow-hidden bg-white">
       <div className="section-container">
         <SectionHeader 
           title="Why Choose Vertexa" 
@@ -47,19 +47,19 @@ const WhyChooseUs: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group premium-card h-full flex flex-col justify-between"
+              className="group premium-card h-full flex flex-col justify-between border-black/5"
             >
               <div>
-                <div className="mb-8 inline-flex p-4 rounded-2xl bg-white/[0.03] border border-white/5 group-hover:border-primary/30 transition-all duration-500">
+                <div className="mb-8 inline-flex p-4 rounded-2xl bg-primary/5 border border-primary/10 group-hover:border-primary/30 transition-all duration-500">
                   {reason.icon}
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-primary transition-colors">{reason.title}</h3>
-                <p className="text-gray-400 group-hover:text-gray-300 transition-colors leading-relaxed mb-8">
+                <h3 className="text-2xl font-bold mb-4 text-dark group-hover:text-primary transition-colors">{reason.title}</h3>
+                <p className="text-gray-600 group-hover:text-gray-700 transition-colors leading-relaxed mb-8">
                   {reason.description}
                 </p>
               </div>
-              <div className="pt-6 border-t border-white/5 flex justify-between items-center group-hover:border-primary/10 transition-colors">
-                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest group-hover:text-primary/70">{reason.stats}</span>
+              <div className="pt-6 border-t border-black/5 flex justify-between items-center group-hover:border-primary/10 transition-colors">
+                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest group-hover:text-primary/70">{reason.stats}</span>
               </div>
             </motion.div>
           ))}

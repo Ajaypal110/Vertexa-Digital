@@ -49,7 +49,7 @@ const plans = [
 
 const Pricing: React.FC = () => {
   return (
-    <section id="pricing" className="py-32 relative bg-[#0B0F19]">
+    <section id="pricing" className="py-32 relative bg-white">
       <div className="section-container">
         <SectionHeader 
           title="Transparent Pricing" 
@@ -64,10 +64,10 @@ const Pricing: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`flex flex-col p-10 rounded-[2.5rem] relative transition-all duration-500 overflow-hidden ${
+              className={`flex flex-col p-10 rounded-[2.5rem] relative transition-all duration-500 ${
                 plan.highlighted 
-                  ? 'bg-gradient-to-b from-[#0D1424] to-[#0D1424]/40 border-2 border-primary shadow-2xl shadow-primary/20 scale-105 z-10' 
-                  : 'bg-[#0D1117] border border-white/5 hover:border-white/10'
+                  ? 'bg-white border-2 border-primary shadow-2xl shadow-primary/20 scale-105 z-10' 
+                  : 'bg-white border border-black/5 hover:border-primary/20 hover:shadow-xl'
               }`}
             >
               {plan.highlighted && (
@@ -79,19 +79,19 @@ const Pricing: React.FC = () => {
               )}
               
               <div className="mb-10">
-                <h3 className={`text-xl font-black mb-2 ${plan.highlighted ? 'text-primary' : 'text-white'}`}>{plan.name}</h3>
+                <h3 className={`text-xl font-black mb-2 ${plan.highlighted ? 'text-primary' : 'text-dark'}`}>{plan.name}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed h-10">{plan.description}</p>
                 <div className="mt-8 flex items-baseline gap-1">
-                  <span className="text-2xl font-black text-gray-400">₹</span>
-                  <span className="text-6xl font-black text-white">{plan.price}</span>
+                  <span className="text-2xl font-black text-primary">₹</span>
+                  <span className="text-6xl font-black text-dark">{plan.price}</span>
                   <span className="text-gray-500 font-bold ml-2">/ project</span>
                 </div>
               </div>
 
               <div className="space-y-5 mb-12 flex-grow">
                 {plan.features.map((feature, idx) => (
-                  <div key={idx} className="flex items-center gap-4 text-gray-300 group">
-                    <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-colors ${plan.highlighted ? 'bg-primary/20 text-primary' : 'bg-white/5 text-gray-500 group-hover:bg-primary group-hover:text-white'}`}>
+                  <div key={idx} className="flex items-center gap-4 text-gray-600 group">
+                    <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-colors ${plan.highlighted ? 'bg-primary/10 text-primary' : 'bg-black/5 text-gray-400 group-hover:bg-primary group-hover:text-white'}`}>
                       <Check size={12} strokeWidth={4} />
                     </div>
                     <span className="text-sm font-medium">{feature}</span>
@@ -102,7 +102,7 @@ const Pricing: React.FC = () => {
               <button className={`w-full py-4 px-8 rounded-2xl font-black text-sm uppercase tracking-widest transition-all duration-300 shadow-xl ${
                 plan.highlighted 
                   ? 'bg-primary text-white hover:bg-primary/90 hover:scale-[1.02] active:scale-[0.98]'
-                  : 'bg-white/5 text-white hover:bg-white/10 active:scale-[0.98]'
+                  : 'bg-secondary/5 text-secondary border border-secondary/10 hover:bg-secondary hover:text-white active:scale-[0.98]'
               }`}>
                 Choose {plan.name}
               </button>

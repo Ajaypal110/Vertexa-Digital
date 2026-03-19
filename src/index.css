@@ -1,27 +1,28 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #6366F1;
-  --color-secondary: #06B6D4;
-  --color-dark: #0B0F19;
-  --color-dark-lighter: #161B22;
+  --color-primary: #D67676; /* Brand Pink/Rose */
+  --color-secondary: #5C8AB4; /* Brand Blue */
+  --color-tertiary: #97D2D2; /* Brand Teal/Aqua */
+  --color-accent: #E8A6A6; /* Light Pink */
+  --color-dark: #2D3436;
+  --color-light: #FFFFFF;
 }
 
 @layer base {
   :root {
-    --background: #0B0F19;
-    --foreground: #F8FAFC;
-    --selection: rgba(99, 102, 241, 0.3);
+    --background: #FFFFFF;
+    --foreground: #1A1C19;
+    --selection: rgba(214, 118, 118, 0.2); /* Pink selection */
   }
   
   * {
-    @apply border-white/5;
+    @apply border-black/5;
   }
 
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
   
   body {
@@ -42,37 +43,37 @@
   }
   
   ::-webkit-scrollbar-track {
-    background: #0B0F19;
+    background: #F8FAFC;
   }
   
   ::-webkit-scrollbar-thumb {
-    background: #1F2937;
+    background: #CBD5E1;
     border-radius: 5px;
-    border: 2px solid #0B0F19;
+    border: 2px solid #F8FAFC;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    background: #374151;
+    background: #94A3B8;
   }
 }
 
 @layer components {
   .glass-nav {
-    @apply bg-[var(--color-dark)]/80 backdrop-blur-xl border-b border-white/5 sticky top-0 z-50;
+    @apply bg-white/80 backdrop-blur-xl border-b border-black/5 sticky top-0 z-50;
   }
   
   .glass-card {
-    @apply bg-white/[0.03] backdrop-blur-md border border-white/10 rounded-3xl transition-all duration-500;
+    @apply bg-white/40 backdrop-blur-md border border-white rounded-3xl transition-all duration-500 shadow-sm;
   }
 
   .premium-card {
-    @apply bg-[#0D1117] border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10;
+    @apply bg-white border border-black/5 rounded-2xl p-8 transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5;
   }
   
   .gradient-border {
     position: relative;
     border-radius: 1rem;
-    background: #0B0F19;
+    background: #FFFFFF;
     padding: 1px;
   }
 
@@ -87,28 +88,28 @@
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
-    opacity: 0.2;
+    opacity: 0.1;
     transition: opacity 0.3s;
   }
 
   .gradient-border:hover::before {
-    opacity: 0.8;
+    opacity: 0.6;
   }
   
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)];
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-tertiary;
   }
   
   .btn-primary {
-    @apply bg-[var(--color-primary)] hover:bg-[var(--color-primary)]/90 text-white font-semibold py-3.5 px-8 rounded-full transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-primary/30 active:scale-[0.98];
+    @apply bg-primary hover:bg-primary/90 text-white font-semibold py-3.5 px-8 rounded-full transition-all duration-300 shadow-lg shadow-primary/10 hover:shadow-primary/20 active:scale-[0.98];
   }
   
   .btn-secondary {
-    @apply bg-white/5 border border-white/10 hover:bg-white/10 text-white font-semibold py-3.5 px-8 rounded-full transition-all duration-300 active:scale-[0.98];
+    @apply bg-black/5 border border-black/5 hover:bg-black/10 text-primary font-semibold py-3.5 px-8 rounded-full transition-all duration-300 active:scale-[0.98];
   }
 
   .section-container {
-    @apply container mx-auto px-6 md:px-12 max-w-7xl;
+    @apply container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl;
   }
 }
 
@@ -124,3 +125,4 @@
     50% { transform: translateY(-20px); }
   }
 }
+

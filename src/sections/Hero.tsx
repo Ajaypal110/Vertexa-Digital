@@ -5,7 +5,7 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden bg-[#0B0F19]">
+    <section id="hero" className="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden bg-white">
       {/* Premium Background Effects */}
       <div className="absolute inset-0 z-0">
         <motion.div 
@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
             opacity: [0.3, 0.4, 0.3]
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-[10%] -left-[5%] w-[600px] h-[600px] rounded-full bg-primary/20 blur-[130px]"
+          className="absolute -top-[10%] -left-[5%] w-[600px] h-[600px] rounded-full bg-primary/10 blur-[130px]"
         />
         <motion.div 
           animate={{ 
@@ -24,37 +24,31 @@ const Hero: React.FC = () => {
             opacity: [0.2, 0.3, 0.2]
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[0%] -right-[5%] w-[700px] h-[700px] rounded-full bg-secondary/10 blur-[150px]"
+          className="absolute bottom-[0%] -right-[5%] w-[700px] h-[700px] rounded-full bg-tertiary/20 blur-[150px]"
         />
-        {/* Grid pattern overlay */}
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0B0F19]" />
+        {/* Subtle texture overlay */}
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none" />
       </div>
 
-      {/* Floating Shapes Animation */}
+      {/* Floating Shapes Animation - Optimized */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        {[...Array(6)].map((_, i) => (
+        {[...Array(4)].map((_, i) => (
           <motion.div
             key={i}
-            initial={{ 
-              x: Math.random() * 1000 - 500, 
-              y: Math.random() * 1000 - 500,
-              opacity: 0 
-            }}
+            initial={{ opacity: 0 }}
             animate={{ 
-              y: [0, -30, 0],
-              opacity: [0.1, 0.3, 0.1],
-              rotate: [0, 45, 0]
+              y: [0, -20, 0],
+              opacity: [0.2, 0.4, 0.2],
             }}
             transition={{ 
-              duration: 5 + Math.random() * 5, 
+              duration: 8 + Math.random() * 5, 
               repeat: Infinity,
               delay: Math.random() * 2
             }}
-            className={`absolute w-32 h-32 rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-3xl`}
+            className={`absolute w-32 h-32 rounded-3xl border border-primary/10 bg-white/40 shadow-sm`}
             style={{ 
-              left: `${15 + i * 15}%`, 
-              top: `${20 + (i % 3) * 20}%` 
+              left: `${15 + i * 20}%`, 
+              top: `${20 + (i % 2) * 30}%` 
             }}
           />
         ))}
@@ -66,17 +60,17 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md mb-8 group cursor-default">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/10 bg-primary/5 mb-8 group cursor-default">
             <Sparkles className="text-primary w-4 h-4" />
-            <span className="text-sm font-bold tracking-tight text-white/90">Premium Web agency for Modern Startups</span>
+            <span className="text-sm font-bold tracking-tight text-primary">Premium Web agency for Modern Startups</span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-8 leading-[1.1] text-white">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-8 leading-[1.1] text-dark">
             Modern Websites That <br className="hidden md:block" />
             <span className="gradient-text">Grow Your Business</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
             We design and develop high-performance websites for startups and businesses. Scale your brand with precision-engineered digital products.
           </p>
 
@@ -104,10 +98,10 @@ const Hero: React.FC = () => {
       <motion.div 
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50"
       >
-        <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-white">Scroll</span>
-        <div className="w-px h-12 bg-gradient-to-b from-white to-transparent" />
+        <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-dark">Scroll</span>
+        <div className="w-px h-12 bg-gradient-to-b from-dark/40 to-transparent" />
       </motion.div>
     </section>
   );

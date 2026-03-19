@@ -29,7 +29,7 @@ const testimonials = [
 
 const Testimonials: React.FC = () => {
   return (
-    <section id="testimonials" className="py-32 relative bg-[#0B0F19]">
+    <section id="testimonials" className="py-32 relative bg-white">
       <div className="section-container">
         <SectionHeader 
           title="Client Success Stories" 
@@ -44,7 +44,7 @@ const Testimonials: React.FC = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="premium-card flex flex-col justify-between group h-full relative"
+              className="premium-card flex flex-col justify-between group h-full relative border-black/5"
             >
               <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
                 <Quote size={48} className="text-primary" />
@@ -53,17 +53,17 @@ const Testimonials: React.FC = () => {
               <div className="relative">
                 <div className="flex gap-1 mb-8">
                   {[...Array(t.stars)].map((_, i) => (
-                    <Star key={i} size={16} fill="#6366F1" className="text-primary shrink-0" />
+                    <Star key={i} size={16} fill="#D67676" className="text-primary shrink-0" />
                   ))}
                 </div>
-                <p className="text-gray-300 text-lg leading-relaxed italic mb-10">
-                  "{t.text}"
+                <p className="text-gray-700 text-lg leading-relaxed italic mb-10">
+                   "{t.text}"
                 </p>
               </div>
 
-              <div className="flex items-center gap-5 pt-8 border-t border-white/5 group-hover:border-primary/20 transition-colors">
+              <div className="flex items-center gap-5 pt-8 border-t border-black/5 group-hover:border-primary/20 transition-colors">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-primary/20 blur-md rounded-full group-hover:blur-lg transition-all" />
+                  <div className="absolute inset-0 bg-primary/10 blur-md rounded-full group-hover:blur-lg transition-all" />
                   <img 
                     src={t.image} 
                     alt={t.name} 
@@ -71,7 +71,7 @@ const Testimonials: React.FC = () => {
                   />
                 </div>
                 <div className="space-y-1">
-                  <h4 className="text-white font-black leading-none">{t.name}</h4>
+                  <h4 className="text-dark font-black leading-none">{t.name}</h4>
                   <p className="text-primary text-xs font-bold uppercase tracking-widest">{t.role}</p>
                 </div>
               </div>
