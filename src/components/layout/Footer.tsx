@@ -9,6 +9,14 @@ interface FooterProps {
   onServiceClick?: () => void;
 }
 
+const FiverrIcon = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 21 21" fill="currentColor">
+    <path d="M18.6 3.9h-2.6c-1 0-1.4.5-1.4 1.3v2H17v3h-2.4v6.8H11v-6.8H8.8v-3H11V4.8c0-2.3 2-3.8 4.6-3.8h3v2.9z" />
+    <circle cx="4.8" cy="4.8" r="1.8" />
+    <path d="M3.3 7.2h3v10.6h-3z" />
+  </svg>
+);
+
 const Footer: React.FC<FooterProps> = ({ onPrivacyClick, onTermsClick, onRefundClick, onServiceClick }) => {
   const currentYear = new Date().getFullYear();
 
@@ -20,7 +28,7 @@ const Footer: React.FC<FooterProps> = ({ onPrivacyClick, onTermsClick, onRefundC
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
           {/* Brand Info */}
           <div className="lg:col-span-4 space-y-8">
-            <Link to="hero" spy={true} smooth={true} offset={-100} duration={500} className="cursor-pointer flex items-center gap-4 inline-flex">
+             <Link to="hero" spy={true} smooth={true} offset={-100} duration={500} className="cursor-pointer flex items-center gap-4 inline-flex">
               <img src="/logo-icon.png" alt="" className="h-12 w-auto object-contain" />
               <div className="flex flex-col leading-none">
                 <span className="text-2xl font-light tracking-[0.15em] text-primary uppercase">Vertexa</span>
@@ -32,10 +40,10 @@ const Footer: React.FC<FooterProps> = ({ onPrivacyClick, onTermsClick, onRefundC
             </p>
             <div className="flex gap-4">
               {[
-
                 { icon: <Instagram size={18} />, href: "https://www.instagram.com/vertexadigital.dev/" },
                 { icon: <Linkedin size={18} />, href: "https://www.linkedin.com/company/vertexa-digital-agency" },
                 { icon: <Github size={18} />, href: "https://github.com/Ajaypal110" },
+                { icon: <FiverrIcon size={18} />, href: "https://www.fiverr.com/sellers/vertexa_digital" },
               ].map((social) => (
                 <a 
                   key={social.href}
