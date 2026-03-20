@@ -9,11 +9,9 @@ interface FooterProps {
   onServiceClick?: () => void;
 }
 
-const FiverrIcon = ({ size = 18 }) => (
-  <svg width={size} height={size} viewBox="0 0 21 21" fill="currentColor">
-    <path d="M18.6 3.9h-2.6c-1 0-1.4.5-1.4 1.3v2H17v3h-2.4v6.8H11v-6.8H8.8v-3H11V4.8c0-2.3 2-3.8 4.6-3.8h3v2.9z" />
-    <circle cx="4.8" cy="4.8" r="1.8" />
-    <path d="M3.3 7.2h3v10.6h-3z" />
+const FiverrIcon = ({ size = 20 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M23.004 15.588a.995.995 0 1 0 .002-1.99.995.995 0 0 0-.002 1.99zm-.996-3.705h-.85c-.546 0-.84.41-.84 1.092v2.466h-1.61v-3.558h-.684c-.547 0-.84.41-.84 1.092v2.466h-1.61v-4.874h1.61v.74c.264-.574.626-.74 1.163-.74h1.972v.74c.264-.574.625-.74 1.162-.74h.527v1.316zm-6.786 1.501h-3.359c.088.546.43.858 1.006.858.43 0 .732-.175.83-.487l1.425.4c-.351.848-1.22 1.364-2.255 1.364-1.748 0-2.549-1.355-2.549-2.515 0-1.14.703-2.505 2.45-2.505 1.856 0 2.471 1.384 2.471 2.408 0 .224-.01.37-.02.477zm-1.562-.945c-.04-.42-.342-.81-.889-.81-.508 0-.81.225-.908.81h1.797zM7.508 15.44h1.416l1.767-4.874h-1.62l-.86 2.837-.878-2.837H5.72l1.787 4.874zm-6.6 0H2.51v-3.558h1.524v3.558h1.591v-4.874H2.51v-.302c0-.332.235-.536.606-.536h.918V8.412H2.85c-1.162 0-1.943.712-1.943 1.755v.4H0v1.316h.908v3.558z"/>
   </svg>
 );
 
@@ -43,7 +41,7 @@ const Footer: React.FC<FooterProps> = ({ onPrivacyClick, onTermsClick, onRefundC
                 { icon: <Instagram size={18} />, href: "https://www.instagram.com/vertexadigital.dev/" },
                 { icon: <Linkedin size={18} />, href: "https://www.linkedin.com/company/vertexa-digital-agency" },
                 { icon: <Github size={18} />, href: "https://github.com/Ajaypal110" },
-                { icon: <FiverrIcon size={18} />, href: "https://www.fiverr.com/vertexa_digital" },
+                { icon: <FiverrIcon size={32} />, href: "https://www.fiverr.com/vertexa_digital" },
               ].map((social) => (
                 <a 
                   key={social.href}
