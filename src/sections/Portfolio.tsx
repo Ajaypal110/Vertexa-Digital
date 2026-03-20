@@ -67,7 +67,7 @@ const Portfolio: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 {/* Overlay Links */}
-                <div className="absolute inset-0 bg-primary/10 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-6">
+                <div className="absolute inset-0 bg-primary/10 md:backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-6">
                   <motion.a 
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
@@ -91,7 +91,7 @@ const Portfolio: React.FC = () => {
                 </div>
                 
                 <div className="absolute top-4 right-4 translate-y-[-10px] group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                  <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-primary/20 text-[10px] font-bold text-primary uppercase tracking-widest shadow-sm">
+                  <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 md:backdrop-blur-md border border-primary/20 text-[10px] font-bold text-primary uppercase tracking-widest shadow-sm">
                     <Sparkles size={10} className="text-secondary" /> Featured
                   </div>
                 </div>

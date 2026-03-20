@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
 
 const About: React.FC = () => {
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
   return (
     <section id="about" className="py-24 relative overflow-hidden bg-white">
       <div className="section-container">
@@ -45,7 +48,7 @@ const About: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="absolute -inset-4 bg-gradient-to-tr from-primary/10 to-secondary/10 rounded-[3rem] blur-2xl opacity-50" />
+            <div className={`absolute -inset-4 bg-gradient-to-tr from-primary/10 to-secondary/10 rounded-[3rem] ${isMobile ? 'blur-lg' : 'blur-2xl'} opacity-50`} />
             <div className="relative z-10 p-2 premium-card overflow-hidden bg-white">
               <img 
                 src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"

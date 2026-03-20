@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
             opacity: [0.3, 0.35, 0.3]
           }}
           transition={isMobile ? undefined : { duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-[10%] -left-[5%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] rounded-full bg-primary/10 blur-[40px] md:blur-[130px] will-change-transform"
+          className="absolute -top-[10%] -left-[5%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] rounded-full bg-primary/10 blur-[30px] md:blur-[130px] will-change-transform"
         />
         <motion.div 
           animate={isMobile ? undefined : { 
@@ -25,14 +25,14 @@ const Hero: React.FC = () => {
             opacity: [0.2, 0.25, 0.2]
           }}
           transition={isMobile ? undefined : { duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[0%] -right-[5%] w-[350px] md:w-[700px] h-[350px] md:h-[700px] rounded-full bg-tertiary/20 blur-[50px] md:blur-[150px] will-change-transform"
+          className="absolute bottom-[0%] -right-[5%] w-[350px] md:w-[700px] h-[350px] md:h-[700px] rounded-full bg-tertiary/20 blur-[40px] md:blur-[150px] will-change-transform"
         />
-        {/* Subtle texture overlay */}
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none" />
+        {/* Subtle texture overlay - Hidden on mobile for performance */}
+        {!isMobile && <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none" />}
       </div>
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        {[...Array(2)].map((_, i) => (
+        {!isMobile && [...Array(2)].map((_, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0 }}

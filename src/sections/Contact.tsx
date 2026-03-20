@@ -62,8 +62,8 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-32 relative overflow-hidden bg-white">
       {/* Decorative Orbs */}
-      <div className="absolute right-0 top-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10" />
-      <div className="absolute left-0 bottom-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px] -z-10" />
+      <div className="absolute right-0 top-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-primary/5 rounded-full blur-[60px] md:blur-[120px] -z-10" />
+      <div className="absolute left-0 bottom-0 w-[250px] md:w-[400px] h-[250px] md:h-[400px] bg-accent/5 rounded-full blur-[50px] md:blur-[100px] -z-10" />
 
       <div className="section-container">
         <SectionHeader 
