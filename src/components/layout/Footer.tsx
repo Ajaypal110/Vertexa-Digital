@@ -1,5 +1,5 @@
 import React from 'react';
-import { Linkedin, Github, Mail, Phone, MapPin, ExternalLink, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
 import { Link } from 'react-scroll';
 
 interface FooterProps {
@@ -9,9 +9,45 @@ interface FooterProps {
   onServiceClick?: () => void;
 }
 
-const FiverrIcon = ({ size = 20 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M23.004 15.588a.995.995 0 1 0 .002-1.99.995.995 0 0 0-.002 1.99zm-.996-3.705h-.85c-.546 0-.84.41-.84 1.092v2.466h-1.61v-3.558h-.684c-.547 0-.84.41-.84 1.092v2.466h-1.61v-4.874h1.61v.74c.264-.574.626-.74 1.163-.74h1.972v.74c.264-.574.625-.74 1.162-.74h.527v1.316zm-6.786 1.501h-3.359c.088.546.43.858 1.006.858.43 0 .732-.175.83-.487l1.425.4c-.351.848-1.22 1.364-2.255 1.364-1.748 0-2.549-1.355-2.549-2.515 0-1.14.703-2.505 2.45-2.505 1.856 0 2.471 1.384 2.471 2.408 0 .224-.01.37-.02.477zm-1.562-.945c-.04-.42-.342-.81-.889-.81-.508 0-.81.225-.908.81h1.797zM7.508 15.44h1.416l1.767-4.874h-1.62l-.86 2.837-.878-2.837H5.72l1.787 4.874zm-6.6 0H2.51v-3.558h1.524v3.558h1.591v-4.874H2.51v-.302c0-.332.235-.536.606-.536h.918V8.412H2.85c-1.162 0-1.943.712-1.943 1.755v.4H0v1.316h.908v3.558z"/>
+const InstagramColorIcon = ({ size = 32 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="24" height="24" rx="6" fill="url(#ig-grad)"/>
+    <path d="M12 16c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4zm0-6.5c-1.379 0-2.5 1.121-2.5 2.5s1.121 2.5 2.5 2.5 2.5-1.121 2.5-2.5-1.121-2.5-2.5-2.5zM17.5 8c-.414 0-.75-.336-.75-.75s.336-.75.75-.75.75.336.75.75-.336.75-.75.75z" fill="white"/>
+    <path fillRule="evenodd" clipRule="evenodd" d="M7.5 4h9c1.93 0 3.5 1.57 3.5 3.5v9c0 1.93-1.57 3.5-3.5 3.5h-9C5.57 20 4 18.43 4 16.5v-9C4 5.57 5.57 4 7.5 4zm0 1.5C6.4 5.5 5.5 6.4 5.5 7.5v9c0 1.1.9 2.5 2 2.5h9c1.1 0 2-.9 2-2v-9c0-1.1-.9-2-2-2h-9z" fill="white"/>
+    <defs>
+      <linearGradient id="ig-grad" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#f09433"/>
+        <stop offset="0.25" stopColor="#e6683c"/>
+        <stop offset="0.5" stopColor="#dc2743"/>
+        <stop offset="0.75" stopColor="#cc2366"/>
+        <stop offset="1" stopColor="#bc1888"/>
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+const LinkedinColorIcon = ({ size = 32 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="24" height="24" rx="4" fill="#0A66C2"/>
+    <path d="M7.5 8H4.5v11h3V8zM6 6.5C5.17 6.5 4.5 5.83 4.5 5S5.17 3.5 6 3.5 7.5 4.17 7.5 5 6.83 6.5 6 6.5zm13.5 12.5h-3v-5.5c0-1.38-.62-2-1.5-2s-1.5.62-1.5 2v5.5h-3V8h3v1.5c1-1.5 2.5-2 4-2 2 0 3 1.5 3 4.5v7z" fill="white"/>
+  </svg>
+);
+
+const GithubColorIcon = ({ size = 32 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="24" height="24" rx="12" fill="#181717"/>
+    <path fillRule="evenodd" clipRule="evenodd" d="M12 4C7.58 4 4 7.58 4 12c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38.0-.19-.01-.82-.01-1.49-2.22.48-2.69-.94-2.69-.94-.36-.92-.89-1.16-.89-1.16-.73-.5.05-.49.05-.49.8.06 1.22.82 1.22.82.71 1.22 1.86.87 2.32.66.07-.51.28-.5 1.07-1.78.2-3.64.89-3.64 3.95 0 .87.31 1.59.82 2.15-.08.2-.36 1.02.08 2.12 0 0 .67-.21 2.2-.82a7.42 7.42 0 0 1 4 0c1.53 1.04 2.2.82 2.2.82.44-1.1.16-1.92.08-2.12.51-.56.82-1.28.82-2.15 0-3.07-1.87-3.75-3.65-3.95.29-.25.54-.73.54-1.48 0-1.07-.01-1.93-.01-2.2 0-.21.15-.46.55-.38A8.01 8.01 0 0 0 20 12c0-4.42-3.58-8-8-8z" fill="white"/>
+  </svg>
+);
+
+const FiverrColorIcon = ({ size = 32 }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="50" fill="#1dbf73"/>
+    <g transform="translate(24, 28) scale(2.5)">
+      <path d="M18.6 3.9h-2.6c-1 0-1.4.5-1.4 1.3v2H17v3h-2.4v6.8H11v-6.8H8.8v-3H11V4.8c0-2.3 2-3.8 4.6-3.8h3v2.9z" fill="white" />
+      <circle cx="4.8" cy="4.8" r="1.8" fill="white" />
+      <path d="M3.3 7.2h3v10.6h-3z" fill="white" />
+    </g>
   </svg>
 );
 
@@ -38,17 +74,17 @@ const Footer: React.FC<FooterProps> = ({ onPrivacyClick, onTermsClick, onRefundC
             </p>
             <div className="flex gap-4">
               {[
-                { icon: <Instagram size={18} />, href: "https://www.instagram.com/vertexadigital.dev/" },
-                { icon: <Linkedin size={18} />, href: "https://www.linkedin.com/company/vertexa-digital-agency" },
-                { icon: <Github size={18} />, href: "https://github.com/Ajaypal110" },
-                { icon: <FiverrIcon size={32} />, href: "https://www.fiverr.com/vertexa_digital" },
+                { icon: <InstagramColorIcon size={32} />, href: "https://www.instagram.com/vertexadigital.dev/" },
+                { icon: <LinkedinColorIcon size={32} />, href: "https://www.linkedin.com/company/vertexa-digital-agency" },
+                { icon: <GithubColorIcon size={32} />, href: "https://github.com/Ajaypal110" },
+                { icon: <FiverrColorIcon size={32} />, href: "https://www.fiverr.com/vertexa_digital" },
               ].map((social) => (
                 <a 
                   key={social.href}
                   href={social.href} 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm"
+                  className="hover:scale-110 hover:-translate-y-1 transition-transform duration-300 drop-shadow-sm"
                 >
                   {social.icon}
                 </a>
