@@ -2,27 +2,30 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
 import { ArrowRight } from 'lucide-react';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
 const Hero: React.FC = () => {
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
   return (
     <section id="hero" className="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden bg-white">
       {/* Premium Background Effects */}
       <div className="absolute inset-0 z-0">
         <motion.div 
-          animate={{ 
+          animate={isMobile ? undefined : { 
             scale: [1, 1.05, 1],
             opacity: [0.3, 0.35, 0.3]
           }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-[10%] -left-[5%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] rounded-full bg-primary/10 blur-[60px] md:blur-[130px] will-change-transform"
+          transition={isMobile ? undefined : { duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-[10%] -left-[5%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] rounded-full bg-primary/10 blur-[40px] md:blur-[130px] will-change-transform"
         />
         <motion.div 
-          animate={{ 
+          animate={isMobile ? undefined : { 
             scale: [1, 1.1, 1],
             opacity: [0.2, 0.25, 0.2]
           }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[0%] -right-[5%] w-[350px] md:w-[700px] h-[350px] md:h-[700px] rounded-full bg-tertiary/20 blur-[80px] md:blur-[150px] will-change-transform"
+          transition={isMobile ? undefined : { duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-[0%] -right-[5%] w-[350px] md:w-[700px] h-[350px] md:h-[700px] rounded-full bg-tertiary/20 blur-[50px] md:blur-[150px] will-change-transform"
         />
         {/* Subtle texture overlay */}
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none" />
