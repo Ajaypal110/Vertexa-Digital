@@ -43,7 +43,7 @@ const Footer: React.FC<FooterProps> = ({ onPrivacyClick, onTermsClick, onRefundC
                 { icon: <Instagram size={18} />, href: "https://www.instagram.com/vertexadigital.dev/" },
                 { icon: <Linkedin size={18} />, href: "https://www.linkedin.com/company/vertexa-digital-agency" },
                 { icon: <Github size={18} />, href: "https://github.com/Ajaypal110" },
-                { icon: <FiverrIcon size={18} />, href: "https://www.fiverr.com/sellers/vertexa_digital" },
+                { icon: <FiverrIcon size={18} />, href: "https://www.fiverr.com/vertexa_digital" },
               ].map((social) => (
                 <a 
                   key={social.href}
