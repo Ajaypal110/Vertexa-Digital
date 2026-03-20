@@ -118,7 +118,7 @@ function App() {
         <div className="p-6 bg-primary/5 rounded-2xl border border-primary/10">
           <h3 className="text-lg font-bold text-primary mb-2">Contact</h3>
           <p className="text-gray-700 font-medium">Vertexa Digital</p>
-          <p className="text-gray-600">Email: <a href="mailto:vertexadigital.dev@gmail.com" className="hover:underline">vertexadigital.dev@gmail.com</a></p>
+          <p className="text-gray-600">Email: <a href="mailto:support@vertexadigital.online" className="hover:underline">support@vertexadigital.online</a></p>
         </div>
 
         <p className="mt-10 text-center text-sm text-gray-400 italic">
@@ -226,7 +226,7 @@ function App() {
 
         <div className="p-6 bg-primary/5 rounded-2xl border border-primary/10">
           <h3 className="text-lg font-bold text-primary mb-2">Refund Requests</h3>
-          <p className="text-gray-600">Contact: <a href="mailto:vertexadigital.dev@gmail.com" className="hover:underline">vertexadigital.dev@gmail.com</a></p>
+          <p className="text-gray-600">Contact: <a href="mailto:support@vertexadigital.online" className="hover:underline">support@vertexadigital.online</a></p>
           <p className="text-xs text-secondary italic mt-2">All decisions are made on a case-by-case basis.</p>
         </div>
       </BrandedModal>
