@@ -40,13 +40,9 @@ const GithubColorIcon = ({ size = 32 }) => (
 );
 
 const FiverrColorIcon = ({ size = 32 }) => (
-  <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="50" cy="50" r="50" fill="#1dbf73"/>
-    <g transform="translate(10, -2)">
-      <path d="M34 25 A12 12 0 0 1 46 37 V45 H54 V55 H46 V82 H32 V55 H24 V45 H32 V37 A2 2 0 0 0 30 35 H24 V23 H34 Z" fill="white" />
-      <circle cx="68" cy="29" r="7" fill="white" />
-      <rect x="61" y="45" width="14" height="37" fill="white" />
-    </g>
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="12" fill="#1DBF73"/>
+    <path d="M11 18H8.082V10.723H5.975V8.601h2.107V6.751c0-1.636 1.065-2.58 2.654-2.58s1.868.106 2.308.212v2.247c-.201-.064-.537-.106-.906-.106-.55 0-.745.212-.745.658V8.6h2.122v2.123H11.31V18z M17.076 8.37c.84 0 1.52.68 1.52 1.52s-.68 1.52-1.52 1.52s-1.52-.68-1.52-1.52s.68-1.52 1.52-1.52z M15.688 18h2.776v-7.35h-2.776V18z" fill="white" />
   </svg>
 );
 
