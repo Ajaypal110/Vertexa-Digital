@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useMediaQuery } from '../hooks/useMediaQuery';
+import { Instagram, Linkedin } from 'lucide-react';
 
 
 const About: React.FC = () => {
@@ -121,9 +122,9 @@ const About: React.FC = () => {
           </div>
           
           <div className="flex flex-col md:flex-row items-center gap-12 relative z-10">
-            <div className="w-48 h-48 rounded-3xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 shadow-2xl shrink-0">
+            <div className="w-48 h-48 rounded-3xl overflow-hidden shadow-2xl shrink-0">
               <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400" 
+                src="/founder.jpeg" 
                 alt="Ajaypal Singh" 
                 className="w-full h-full object-cover"
               />
@@ -137,15 +138,24 @@ const About: React.FC = () => {
               <p className="text-gray-600 text-base leading-relaxed">
                 Driven by a passion for clean architecture and user-centric design, Ajaypal founded Vertexa Digital to bring enterprise-grade development to the startup ecosystem. With deep expertise in the MERN stack, he leads every project personally to ensure absolute technical perfection.
               </p>
-              <div className="flex items-center gap-6 pt-2">
+              <div className="flex flex-wrap items-center gap-6 pt-2">
                 <div className="flex flex-col">
                   <span className="text-2xl font-black text-dark leading-none">5+</span>
                   <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mt-1">Excellence Rating</span>
                 </div>
-                <div className="w-px h-10 bg-black/5" />
+                <div className="w-px h-10 bg-black/5 hidden sm:block" />
                 <div className="flex flex-col">
                   <span className="text-2xl font-black text-dark leading-none">100%</span>
                   <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mt-1">Direct Commitment</span>
+                </div>
+                <div className="w-px h-10 bg-black/5 hidden sm:block" />
+                <div className="flex items-center gap-3 mt-4 sm:mt-0">
+                  <a href="https://www.linkedin.com/in/ajaypal-singh-745967326/" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-[#FAFBF9] border border-black/5 hover:border-primary/30 hover:bg-primary/5 text-gray-600 hover:text-primary rounded-xl transition-all duration-300">
+                    <Linkedin size={20} />
+                  </a>
+                  <a href="https://www.instagram.com/_ajaypal_singh_/" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-[#FAFBF9] border border-black/5 hover:border-primary/30 hover:bg-primary/5 text-gray-600 hover:text-primary rounded-xl transition-all duration-300">
+                    <Instagram size={20} />
+                  </a>
                 </div>
               </div>
             </div>
