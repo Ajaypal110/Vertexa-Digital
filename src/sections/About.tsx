@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useMediaQuery } from '../hooks/useMediaQuery';
-import { Instagram, Linkedin } from 'lucide-react';
+import { InstagramColorIcon, LinkedinColorIcon } from '../components/ui/SocialIcons';
 
 
 const About: React.FC = () => {
@@ -149,12 +149,12 @@ const About: React.FC = () => {
                   <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mt-1">Direct Commitment</span>
                 </div>
                 <div className="w-px h-10 bg-black/5 hidden sm:block" />
-                <div className="flex items-center gap-3 mt-4 sm:mt-0">
-                  <a href="https://www.linkedin.com/in/ajaypal-singh-745967326/" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-[#FAFBF9] border border-black/5 hover:border-primary/30 hover:bg-primary/5 text-gray-600 hover:text-primary rounded-xl transition-all duration-300">
-                    <Linkedin size={20} />
+                <div className="flex items-center gap-4 mt-4 sm:mt-0 px-2 lg:px-4">
+                  <a href="https://www.linkedin.com/in/ajaypal-singh-745967326/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 hover:-translate-y-1 transition-transform duration-300 drop-shadow-sm">
+                    <LinkedinColorIcon size={32} />
                   </a>
-                  <a href="https://www.instagram.com/_ajaypal_singh_/" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-[#FAFBF9] border border-black/5 hover:border-primary/30 hover:bg-primary/5 text-gray-600 hover:text-primary rounded-xl transition-all duration-300">
-                    <Instagram size={20} />
+                  <a href="https://www.instagram.com/_ajaypal_singh_/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 hover:-translate-y-1 transition-transform duration-300 drop-shadow-sm">
+                    <InstagramColorIcon size={32} />
                   </a>
                 </div>
               </div>
