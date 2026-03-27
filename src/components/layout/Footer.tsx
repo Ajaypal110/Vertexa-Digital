@@ -1,16 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
-import { Link } from 'react-scroll';
 import { InstagramColorIcon, LinkedinColorIcon, GithubColorIcon, FiverrColorIcon } from '../ui/SocialIcons';
 
-interface FooterProps {
-  onPrivacyClick?: () => void;
-  onTermsClick?: () => void;
-  onRefundClick?: () => void;
-  onServiceClick?: () => void;
-}
-
-const Footer: React.FC<FooterProps> = ({ onPrivacyClick, onTermsClick, onRefundClick, onServiceClick }) => {
+const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -21,7 +14,7 @@ const Footer: React.FC<FooterProps> = ({ onPrivacyClick, onTermsClick, onRefundC
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
           {/* Brand Info */}
           <div className="lg:col-span-4 space-y-8">
-             <Link to="hero" spy={true} smooth={true} offset={-100} duration={500} className="cursor-pointer flex items-center gap-4 inline-flex">
+             <Link to="/" className="cursor-pointer flex items-center gap-4 inline-flex">
               <img src="/logo-icon.png" alt="" className="h-12 w-auto object-contain" />
               <div className="flex flex-col leading-none">
                 <span className="text-2xl font-light tracking-[0.15em] text-primary uppercase">Vertexa</span>
@@ -55,14 +48,17 @@ const Footer: React.FC<FooterProps> = ({ onPrivacyClick, onTermsClick, onRefundC
           <div className="lg:col-span-2 space-y-6">
             <h4 className="text-dark font-semibold text-sm uppercase tracking-widest">Platform</h4>
             <ul className="space-y-4">
-              {['Services', 'Portfolio', 'Process', 'Pricing'].map((link) => (
-                <li key={link}>
+              {[
+                { name: 'Services', to: '/services' },
+                { name: 'About', to: '/about' },
+                { name: 'Contact', to: '/contact' },
+              ].map((link) => (
+                <li key={link.name}>
                   <Link 
-                    to={link.toLowerCase()} 
-                    spy={true} smooth={true} offset={-80} duration={500}
+                    to={link.to}
                     className="text-gray-600 hover:text-primary cursor-pointer transition-colors text-sm"
                   >
-                    {link}
+                    {link.name}
                   </Link>
                 </li>
               ))}
@@ -73,19 +69,23 @@ const Footer: React.FC<FooterProps> = ({ onPrivacyClick, onTermsClick, onRefundC
           <div className="lg:col-span-2 space-y-6">
             <h4 className="text-dark font-semibold text-sm uppercase tracking-widest">Company</h4>
             <ul className="space-y-4">
-              <li>
-                <Link 
-                  to="about" 
-                  spy={true} smooth={true} offset={-80} duration={500}
-                  className="text-gray-600 hover:text-primary cursor-pointer transition-colors text-sm"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li><button onClick={onPrivacyClick} className="text-gray-600 hover:text-primary transition-colors text-sm text-left">Privacy Policy</button></li>
-              <li><button onClick={onTermsClick} className="text-gray-600 hover:text-primary transition-colors text-sm text-left">Terms & Conditions</button></li>
-              <li><button onClick={onRefundClick} className="text-gray-600 hover:text-primary transition-colors text-sm text-left">Refund Policy</button></li>
-              <li><button onClick={onServiceClick} className="text-gray-600 hover:text-primary transition-colors text-sm text-left">Service Agreement</button></li>
+              {[
+                { name: 'About Us', to: '/about', label: 'Go to About Us page' },
+                { name: 'Privacy Policy', to: '/privacy-policy', label: 'Read our Privacy Policy' },
+                { name: 'Terms & Conditions', to: '/terms', label: 'Read our Terms and Conditions' },
+                { name: 'Refund Policy', to: '/refund-policy', label: 'Read our Refund Policy' },
+                { name: 'Service Agreement', to: '/service-agreement', label: 'Read our Service Agreement' },
+              ].map((link) => (
+                <li key={link.name}>
+                  <Link 
+                    to={link.to}
+                    className="text-gray-600 hover:text-primary cursor-pointer transition-colors text-sm"
+                    aria-label={link.label}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -99,11 +99,11 @@ const Footer: React.FC<FooterProps> = ({ onPrivacyClick, onTermsClick, onRefundC
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-primary shrink-0" />
-                <a href="mailto:support@vertexadigital.online" className="text-gray-600 hover:text-primary transition-colors text-sm">support@vertexadigital.online</a>
+                <a href="mailto:support@vertexadigital.online" className="text-gray-600 hover:text-primary transition-colors text-sm" aria-label="Email support@vertexadigital.online">support@vertexadigital.online</a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-primary shrink-0" />
-                <a href="tel:+918094548637" className="text-gray-600 hover:text-primary transition-colors text-sm">+91 8094548637</a>
+                <a href="tel:+918094548637" className="text-gray-600 hover:text-primary transition-colors text-sm" aria-label="Call us at +91 8094548637">+91 8094548637</a>
               </li>
             </ul>
           </div>

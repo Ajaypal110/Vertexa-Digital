@@ -66,7 +66,8 @@ const Testimonials: React.FC = () => {
                   <div className="absolute inset-0 bg-primary/10 blur-md rounded-full group-hover:blur-lg transition-all" />
                   <img 
                     src={t.image} 
-                    alt={t.name} 
+                    alt={`Client testimonial from ${t.name}, ${t.role}`} 
+                    loading="lazy"
                     className="w-14 h-14 rounded-full border-2 border-primary/30 relative z-10 grayscale hover:grayscale-0 transition-all duration-500" 
                   />
                 </div>

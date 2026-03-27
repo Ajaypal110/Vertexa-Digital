@@ -61,7 +61,8 @@ const Portfolio: React.FC = () => {
               <div className="relative aspect-[16/10] overflow-hidden">
                 <img 
                   src={project.image} 
-                  alt={project.title} 
+                  alt={`${project.title} - ${project.category} built by Vertexa Digital`} 
+                  loading="lazy"
                   className="object-cover w-full h-full transform group-hover:scale-110 group-hover:rotate-1 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

@@ -74,15 +74,17 @@ const services = [
 
 interface ServicesProps {
   onLearnMore?: (service: any) => void;
+  asH1?: boolean;
 }
 
-const Services: React.FC<ServicesProps> = ({ onLearnMore }) => {
+const Services: React.FC<ServicesProps> = ({ onLearnMore, asH1 = false }) => {
   return (
     <section id="services" className="py-20 relative bg-white">
       <div className="section-container">
         <SectionHeader 
           title="Our Services" 
           subtitle="Comprehensive digital solutions designed to elevate your brand and drive measurable results."
+          asH1={asH1}
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

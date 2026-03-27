@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-scroll';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,19 +23,26 @@ const Navbar: React.FC = () => {
     }
   }, [isOpen]);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
+
   const navLinks = [
-    { name: 'About', to: 'about' },
-    { name: 'Services', to: 'services' },
-    { name: 'Portfolio', to: 'portfolio' },
-    { name: 'Process', to: 'process' },
-    { name: 'Pricing', to: 'pricing' },
-    { name: 'FAQ', to: 'faq' },
+    { name: 'Home', to: '/' },
+    { name: 'Services', to: '/services' },
+    { name: 'About', to: '/about' },
+    { name: 'Contact', to: '/contact' },
   ];
+
+  const isActive = (path: string) => {
+    return location.pathname === path;
+  };
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'glass-nav py-3 shadow-md' : 'bg-transparent py-5'}`}>
       <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center">
-        <Link to="hero" spy={true} smooth={true} offset={-100} duration={500} className="cursor-pointer flex items-center gap-3 relative z-10 mr-auto">
+        <Link to="/" className="cursor-pointer flex items-center gap-3 relative z-10 mr-auto" aria-label="Go to homepage">
           <img src="/logo-icon.png" alt="" className="h-10 md:h-12 w-auto object-contain transition-all duration-300" />
           <span className="flex flex-col leading-none">
             <span className="text-lg md:text-xl font-light tracking-[0.15em] text-primary uppercase">Vertexa</span>
@@ -49,23 +57,21 @@ const Navbar: React.FC = () => {
               <Link
                 key={link.name}
                 to={link.to}
-                spy={true}
-                smooth={true}
-                offset={-80}
-                duration={500}
-                className="text-secondary hover:text-primary cursor-pointer transition-all text-[13px] font-medium hover:scale-105"
+                className={`cursor-pointer transition-all text-[13px] font-medium hover:scale-105 ${
+                  isActive(link.to) 
+                    ? 'text-primary' 
+                    : 'text-secondary hover:text-primary'
+                }`}
+                aria-label={`Navigate to ${link.name} page`}
               >
                 {link.name}
               </Link>
             ))}
           </div>
           <Link
-            to="contact"
-            spy={true}
-            smooth={true}
-            offset={-80}
-            duration={500}
+            to="/contact"
             className="btn-primary cursor-pointer text-xs !py-2 !px-5"
+            aria-label="Get started with our services"
           >
             Get Started
           </Link>
@@ -75,6 +81,7 @@ const Navbar: React.FC = () => {
         <button
           className="md:hidden text-primary relative z-10"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
@@ -89,7 +96,7 @@ const Navbar: React.FC = () => {
         <div className="relative flex flex-col h-full" style={{ backgroundColor: 'white' }}>
           {/* Mobile Header */}
           <div className="flex items-center justify-between px-6 py-6 border-b border-black/5 bg-white">
-            <Link to="hero" spy={true} smooth={true} offset={-100} duration={500} className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
+            <Link to="/" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
               <img src="/logo-icon.png" alt="" className="h-10 w-auto object-contain" />
               <span className="flex flex-col leading-none">
                 <span className="text-xl font-light tracking-[0.15em] text-primary uppercase">Vertexa</span>
@@ -109,11 +116,9 @@ const Navbar: React.FC = () => {
               <Link
                 key={link.name}
                 to={link.to}
-                spy={true}
-                smooth={true}
-                offset={-80}
-                duration={500}
-                className="text-gray-900 text-2xl font-medium uppercase tracking-wider hover:text-primary transition-all w-full group"
+                className={`text-2xl font-medium uppercase tracking-wider transition-all w-full group ${
+                  isActive(link.to) ? 'text-primary' : 'text-gray-900 hover:text-primary'
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -122,12 +127,8 @@ const Navbar: React.FC = () => {
             
             <div className="pt-8 w-full border-t border-black/5 mt-auto">
               <Link
-                to="contact"
-                spy={true}
-                smooth={true}
-                offset={-80}
-                duration={500}
-                className="btn-primary w-full text-center py-5 text-xl"
+                to="/contact"
+                className="btn-primary w-full text-center py-5 text-xl block"
                 onClick={() => setIsOpen(false)}
               >
                 Contact Us

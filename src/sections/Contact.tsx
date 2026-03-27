@@ -4,7 +4,11 @@ import { Mail, Phone, MapPin, Send, MessageCircle, CheckCircle, AlertCircle } fr
 import emailjs from '@emailjs/browser';
 import SectionHeader from '../components/ui/SectionHeader';
 
-const Contact: React.FC = () => {
+interface ContactProps {
+  asH1?: boolean;
+}
+
+const Contact: React.FC<ContactProps> = ({ asH1 = false }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -69,6 +73,7 @@ const Contact: React.FC = () => {
         <SectionHeader 
           title="Ready to Scale?" 
           subtitle="Let's build something exceptional together. Reach out for a consultation."
+          asH1={asH1}
         />
 
         <div className="flex flex-col lg:flex-row gap-8 sm:gap-12 mt-10 sm:mt-20 max-w-6xl mx-auto">

@@ -4,8 +4,13 @@ import { useMediaQuery } from '../hooks/useMediaQuery';
 import { InstagramColorIcon, LinkedinColorIcon } from '../components/ui/SocialIcons';
 
 
-const About: React.FC = () => {
+interface AboutProps {
+  asH1?: boolean;
+}
+
+const About: React.FC<AboutProps> = ({ asH1 = false }) => {
   const isMobile = useMediaQuery('(max-width: 768px)');
+  const TitleTag = asH1 ? 'h1' : 'h2';
 
   return (
     <section id="about" className="py-24 relative overflow-hidden bg-white">
@@ -21,9 +26,9 @@ const About: React.FC = () => {
           >
             <div className="space-y-4">
               <span className="text-primary text-xs font-black uppercase tracking-[0.3em] bg-primary/5 px-4 py-2 rounded-full border border-primary/10">About Vertexa Digital</span>
-              <h2 className="text-4xl md:text-5xl font-black text-dark leading-tight">
+              <TitleTag className="text-4xl md:text-5xl font-black text-dark leading-tight">
                 Engineering <span className="gradient-text">Scalable Foundations</span> for Future Giants
-              </h2>
+              </TitleTag>
             </div>
             
             <p className="text-gray-600 text-lg leading-relaxed">
@@ -125,7 +130,8 @@ const About: React.FC = () => {
             <div className="w-48 h-48 rounded-3xl overflow-hidden shadow-2xl shrink-0">
               <img 
                 src="/founder.jpeg" 
-                alt="Ajaypal Singh" 
+                alt="Ajaypal Singh - Founder & Lead Developer at Vertexa Digital" 
+                loading="lazy"
                 className="w-full h-full object-cover"
               />
             </div>
